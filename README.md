@@ -1,2 +1,2 @@
-# IO_project
+# MyPet
 Aplikacja wspomagająca opiekę nad zwierzętami domowymi

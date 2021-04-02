@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">Pet Care</string>
+    <string name="title_activity_your_account">FullscreenActivity</string>
+    <string name="dummy_button">Dummy Button</string>
+    <string name="dummy_content">DUMMY\nCONTENT</string>
+    <string name="email">DEFAULT EMAIL</string>
+</resources>

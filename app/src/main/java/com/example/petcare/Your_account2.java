@@ -15,8 +15,6 @@ private Button button2;
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_your_account2);
         Intent intent=getIntent();
-        TextView email =(TextView) findViewById(R.id.editTextTextEmailAddress);
-        TextView password =(TextView) findViewById(R.id.editTextTextPassword);
         button2 = (Button) findViewById(R.id.button3);
         button2.setOnClickListener(new View.OnClickListener() {
             @Override

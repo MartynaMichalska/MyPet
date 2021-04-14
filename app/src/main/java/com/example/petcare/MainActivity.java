@@ -32,7 +32,7 @@ public class MainActivity extends AppCompatActivity {
         EditText password = findViewById(R.id.registration_password_input);
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        button = (Button) findViewById(R.id.button);
+        button = (Button) findViewById(R.id.log_in);
         signu = (Button) findViewById(R.id.sign_up);
 
 

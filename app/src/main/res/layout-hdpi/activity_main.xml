@@ -39,7 +39,7 @@
         app:layout_constraintVertical_bias="0.897" />
 
     <EditText
-        android:id="@+id/login_haslo"
+        android:id="@+id/login_password"
         android:layout_width="442dp"
         android:layout_height="61dp"
         android:ems="10"

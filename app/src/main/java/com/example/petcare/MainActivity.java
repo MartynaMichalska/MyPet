@@ -1,4 +1,4 @@
-package com.example.petcare;
+ package com.example.petcare;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -86,13 +86,6 @@ public class MainActivity extends AppCompatActivity {
 
         }
     }
-
-
-
-
-
-
-
 
     public void openActivity3 ()
     {

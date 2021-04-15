@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="medsTimes">
+        <item>Not taking any meds</item>
+        <item>Once a day</item>
+        <item>Once a week</item>
+        <item>Twice a day</item>
+        <item>Every two days</item>
+        <item>Every three days</item>
+        <item>Other</item>
+    </string-array>
+</resources>

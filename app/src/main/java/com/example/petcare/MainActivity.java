@@ -17,6 +17,7 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.firestore.auth.User;
 
+
 public class MainActivity extends AppCompatActivity {
 
     private Button button;
@@ -28,16 +29,18 @@ public class MainActivity extends AppCompatActivity {
 
         mAuth = FirebaseAuth.getInstance();
 
-        EditText email = findViewById(R.id.registration_email_input);
-        EditText password = findViewById(R.id.registration_password_input);
+        EditText email = findViewById(R.id.login_email);
+        EditText password = findViewById(R.id.login_haslo);
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         button = (Button) findViewById(R.id.log_in);
         signu = (Button) findViewById(R.id.sign_up);
-
+        //mAuth.signInWithEmailAndPassword(email.getText().toString(), password.getText().toString());
 
         button.setOnClickListener(new View.OnClickListener() {
             @Override
+
+
             public void onClick(View v) {
                 openActivity2();
             }

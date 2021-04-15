@@ -10,7 +10,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.PetCare">
-        <activity android:name=".pickGender"></activity>
+        <activity android:name=".petInfo01"></activity>
+        <activity android:name=".pickGender" />
         <activity android:name=".registration" />
         <activity android:name=".Choose_Race" />
         <activity android:name=".Add_Activity" />

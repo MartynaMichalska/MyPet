@@ -1,7 +1,5 @@
 package com.example.petcare;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -9,6 +7,9 @@ import android.widget.Button;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import androidx.appcompat.app.AppCompatActivity;
+
 
 public class petInfo01 extends AppCompatActivity {
 
@@ -32,7 +33,7 @@ public class petInfo01 extends AppCompatActivity {
         next.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-               if( dataValidation(name.getText().toString(), Integer.parseInt(weight.getText().toString()), Integer.parseInt(age.getText().toString())))
+               if( dataValidation(name.getText().toString(), weight.getText().toString(), age.getText().toString()))
                {
                    openActivity();
                }
@@ -43,66 +44,31 @@ public class petInfo01 extends AppCompatActivity {
 
 
     }
-    private boolean dataValidation(String name, int weight, int age)
-    {
-        if(!name.isEmpty() && !Integer.toString(weight).isEmpty() && !Integer.toString(age).isEmpty() )
-        {
-            if (weight > 0 && weight < 40) {
+    public boolean dataValidation(String name, String weight, String age) {
 
-                if (age > 0 && age < 30) {
-                    return true;
+        if (!name.isEmpty() && !weight.isEmpty() && !age.isEmpty()) {
 
-                }
-                else
-                {
-                    Toast.makeText(this, "Wrong age value", Toast.LENGTH_SHORT).show();
-                    return false;
-                }
-            }
-            else
-            {
-                Toast.makeText(this, "Wrong weight value", Toast.LENGTH_SHORT).show();
-                return false;
-            }
-        }
-        else
-        {
-            Toast.makeText(this, "Please fill the blank spaces", Toast.LENGTH_SHORT).show();
-            return false;
-        }
-/*
-        if(!name.isEmpty()) {
-            if (!String.valueOf(weight).isEmpty()) {
-                if (weight > 0 && weight < 40) {
-                    if(!String.valueOf(age).isEmpty()) {
-                        if (age > 0 && age < 30) {
-                            return true;
+                if (Integer.parseInt(weight) > 0 && Integer.parseInt(weight) < 40) {
 
-                        } else {
-                            Toast.makeText(this, "Wrong age value", Toast.LENGTH_SHORT).show();
-                            return false;
-                        }
-                    }
-                    else
-                    {
-                        Toast.makeText(this, "Please fill the blank spaces", Toast.LENGTH_SHORT).show();
+                    if (Integer.parseInt(age) > 0 && Integer.parseInt(age) < 30) {
+                        return true;
+
+                    } else {
+                        Toast.makeText(this, "Wrong age value", Toast.LENGTH_SHORT).show();
                         return false;
                     }
                 } else {
                     Toast.makeText(this, "Wrong weight value", Toast.LENGTH_SHORT).show();
                     return false;
                 }
-            } else {
+
+        }
+        else
+            {
                 Toast.makeText(this, "Please fill the blank spaces", Toast.LENGTH_SHORT).show();
                 return false;
             }
-        }
-        else
-        {
-            Toast.makeText(this, "Please fill the blank spaces", Toast.LENGTH_SHORT).show();
-            return false;
-        }
-*/
+
     }
 
     public void openActivity ()
@@ -110,6 +76,9 @@ public class petInfo01 extends AppCompatActivity {
         Intent intent= new Intent(this,petInfo02.class);
         startActivity(intent);
     }
+
+
+
 
 
 }

@@ -79,7 +79,8 @@
             android:id="@+id/petAge"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Your pet's age (in years)" />
+            android:hint="Your pet's age (in years)"
+            android:inputType="number" />
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
@@ -95,13 +96,15 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="#F4C4C4"
-            android:hint="Your pet's weight (in kilograms)" />
+            android:hint="Your pet's weight (in kilograms)"
+            android:inputType="number" />
     </com.google.android.material.textfield.TextInputLayout>
 
     <Button
         android:id="@+id/petInfoNext"
         android:layout_width="103dp"
         android:layout_height="56dp"
+        android:layout_marginTop="5dp"
         android:layout_marginBottom="16dp"
         android:backgroundTint="#DA8684"
         android:fontFamily="@font/autour_one"

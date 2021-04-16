@@ -7,24 +7,24 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
-public class addingPicture extends AppCompatActivity {
-    private Button next;
+public class addPetFinish extends AppCompatActivity {
 
+    private Button back;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_adding_picture);
-        next= (Button) findViewById(R.id.addPicButton);
-        next.setOnClickListener(new View.OnClickListener() {
+        setContentView(R.layout.activity_add_pet_finish);
+        back=(Button) findViewById(R.id.backToMain);
+        back.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 openActivity();
             }
         });
     }
-    public void openActivity()
+    public void openActivity ()
     {
-        Intent intent= new Intent(this,addPetFinish.class);
+        Intent intent = new Intent (this, Your_account2.class);
         startActivity(intent);
     }
 }

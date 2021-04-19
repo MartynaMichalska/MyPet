@@ -1,15 +1,25 @@
 package com.example.petcare;
 
 import android.content.Intent;
+import android.os.Build;
 import android.os.Bundle;
+import android.text.format.DateUtils;
 import android.view.View;
 import android.widget.Button;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+
+import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.google.type.DateTime;
+
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.Date;
 
 
@@ -21,6 +31,7 @@ public class petInfo01 extends AppCompatActivity {
     private Spinner petStrain;
     private TextView age;
 
+    @RequiresApi(api = Build.VERSION_CODES.O)
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
@@ -32,7 +43,16 @@ public class petInfo01 extends AppCompatActivity {
         weight=(TextView) findViewById(R.id.petWeight);
         age=(TextView) findViewById(R.id.petAge);
         petStrain = (Spinner) findViewById(R.id.petStrain);
+        SimpleDateFormat formatter = new SimpleDateFormat("dd-MM-yyyy");
+        Date date = null;
+        try {
+            date = formatter.parse(age.getText().toString());
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
 
+
+        Date finalDate = date;
         next.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -40,7 +60,7 @@ public class petInfo01 extends AppCompatActivity {
                if(position > -1 && dataValidation(name.getText().toString(), weight.getText().toString(), age.getText().toString()))
                {
                    String petStrain = getResources().getStringArray(R.array.Strain)[position];
-                   openActivity(name.getText().toString(), Integer.parseInt(weight.getText().toString()), new Date(), petStrain);
+                   openActivity(name.getText().toString(), Integer.parseInt(weight.getText().toString()), finalDate,  petStrain);
                }
 
 
@@ -55,11 +75,11 @@ public class petInfo01 extends AppCompatActivity {
 
                 if (Integer.parseInt(weight) > 0 && Integer.parseInt(weight) < 40) {
 
-                    if (Integer.parseInt(age) > 0 && Integer.parseInt(age) < 30) {
+                    if (age.contains("-")) {
                         return true;
 
                     } else {
-                        Toast.makeText(this, "Wrong age value", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(this, "Wrong birthday value", Toast.LENGTH_SHORT).show();
                         return false;
                     }
                 } else {

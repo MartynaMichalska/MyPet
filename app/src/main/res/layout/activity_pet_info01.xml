@@ -19,8 +19,8 @@
 
     <Spinner
         android:id="@+id/petStrain"
-        android:layout_width="413dp"
-        android:layout_height="60dp"
+        android:layout_width="481dp"
+        android:layout_height="57dp"
         android:layout_marginTop="12dp"
         android:background="@android:drawable/btn_dropdown"
         android:backgroundTint="#F4C4C4"
@@ -78,8 +78,8 @@
             android:id="@+id/petAge"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Your pet's age (in years)"
-            android:inputType="number" />
+            android:hint="Your pet's birth date ()"
+            android:inputType="datetime" />
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout

@@ -22,19 +22,21 @@ public class pickGender extends AppCompatActivity {
         male.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                openActivity();
+                openActivity(true);
             }
         });
         female.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                openActivity();
+                openActivity(false);
             }
         });
     }
-    public void openActivity ()
+    public void openActivity (boolean isMale)
     {
         Intent intent = new Intent (this, petInfo01.class);
+        intent.putExtra("isMale", isMale);
+        intent.putExtra("isDog", getIntent().getBooleanExtra("isDog", false));
         startActivity(intent);
     }
 }

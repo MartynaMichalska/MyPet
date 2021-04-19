@@ -21,19 +21,20 @@ public class Choose_Race extends AppCompatActivity {
         dog.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                openActivity2();
+                openActivity2(true);
             }
         });
         cat.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                openActivity2();
+                openActivity2(false);
             }
         });
     }
-    public void openActivity2 ()
+    public void openActivity2 (boolean isDog)
     {
         Intent intent = new Intent (this, pickGender.class);
+        intent.putExtra("isDog", isDog);
         startActivity(intent);
     }
 }

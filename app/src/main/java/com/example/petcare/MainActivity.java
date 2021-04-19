@@ -82,7 +82,7 @@ public class MainActivity extends AppCompatActivity {
 
         }
         else {
-            Toast.makeText(this, "Error:"+authResultTask.getException(), Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "Invalid e-mail or password.", Toast.LENGTH_SHORT).show();
 
         }
     }

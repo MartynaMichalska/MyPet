@@ -10,13 +10,15 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import java.util.Date;
+
 
 public class petInfo01 extends AppCompatActivity {
 
     private Button next;
     private TextView name;
     private TextView weight;
-    private Spinner scroll;
+    private Spinner petStrain;
     private TextView age;
 
     @Override
@@ -29,13 +31,16 @@ public class petInfo01 extends AppCompatActivity {
         name=(TextView) findViewById(R.id.petName);
         weight=(TextView) findViewById(R.id.petWeight);
         age=(TextView) findViewById(R.id.petAge);
+        petStrain = (Spinner) findViewById(R.id.petStrain);
 
         next.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-               if( dataValidation(name.getText().toString(), weight.getText().toString(), age.getText().toString()))
+                Integer position = petStrain.getSelectedItemPosition();
+               if(position > -1 && dataValidation(name.getText().toString(), weight.getText().toString(), age.getText().toString()))
                {
-                   openActivity();
+                   String petStrain = getResources().getStringArray(R.array.Strain)[position];
+                   openActivity(name.getText().toString(), Integer.parseInt(weight.getText().toString()), new Date(), petStrain);
                }
 
 
@@ -71,9 +76,15 @@ public class petInfo01 extends AppCompatActivity {
 
     }
 
-    public void openActivity ()
+    public void openActivity (String name, int weight, Date dateOfBirth, String breed)
     {
         Intent intent= new Intent(this,petInfo02.class);
+        intent.putExtra("isMale", getIntent().getBooleanExtra("isMale", false));;
+        intent.putExtra("isDog", getIntent().getBooleanExtra("isDog", false));
+        intent.putExtra("name", name);
+        intent.putExtra("dateOfBirth", dateOfBirth);
+        intent.putExtra("breed", breed);
+        intent.putExtra("weight", weight);
         startActivity(intent);
     }
 

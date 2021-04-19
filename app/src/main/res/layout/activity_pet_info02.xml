@@ -94,14 +94,15 @@
         android:id="@+id/petInfo02Next"
         android:layout_width="131dp"
         android:layout_height="69dp"
-        android:layout_marginTop="67dp"
+        android:layout_marginTop="552dp"
         android:backgroundTint="#DA8684"
         android:fontFamily="@font/autour_one"
         android:text="NEXT"
         android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.502"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/spinner3" />
+        app:layout_constraintTop_toTopOf="parent" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

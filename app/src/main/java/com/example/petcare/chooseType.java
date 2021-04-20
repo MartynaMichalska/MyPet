@@ -7,7 +7,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
 
-public class Choose_Race extends AppCompatActivity {
+public class chooseType extends AppCompatActivity {
 
     private ImageView dog;
     private ImageView cat;

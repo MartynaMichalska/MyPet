@@ -24,7 +24,7 @@ public class addPetFinish extends AppCompatActivity {
     }
     public void openActivity ()
     {
-        Intent intent = new Intent (this, Your_account2.class);
+        Intent intent = new Intent (this, userAccount.class);
         startActivity(intent);
     }
 }

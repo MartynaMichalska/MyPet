@@ -7,27 +7,27 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
-public class Add_Activity extends AppCompatActivity {
+public class addNewPet extends AppCompatActivity {
 
-    private Button button3;
+    private Button add;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_add_);
+        setContentView(R.layout.activity_add);
 
-        button3 = (Button) findViewById(R.id.button2);
-        button3.setOnClickListener(new View.OnClickListener() {
+        add = (Button) findViewById(R.id.button2);
+        add.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                openActivity2();
+                openActivityChooseType();
             }
         });
     }
 
-    public void openActivity2 ()
+    public void openActivityChooseType ()
     {
-        Intent intent = new Intent (this, Choose_Race.class);
+        Intent intent = new Intent (this, chooseType.class);
         startActivity(intent);
     }
 

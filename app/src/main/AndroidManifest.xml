@@ -17,9 +17,9 @@
         <activity android:name=".petInfo01" />
         <activity android:name=".pickGender" />
         <activity android:name=".registration" />
-        <activity android:name=".Choose_Race" />
-        <activity android:name=".Add_Activity" />
-        <activity android:name=".Your_account2" />
+        <activity android:name=".chooseType" />
+        <activity android:name=".addNewPet" />
+        <activity android:name=".userAccount" />
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

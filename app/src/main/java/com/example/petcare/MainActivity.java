@@ -1,23 +1,20 @@
  package com.example.petcare;
 
-import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
+import com.google.android.material.navigation.NavigationView;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
-import com.google.firebase.firestore.auth.User;
 
-public class MainActivity extends AppCompatActivity {
+ public class MainActivity extends AppCompatActivity {
 
     private Button logi;
     private Button signu;
@@ -47,11 +44,22 @@ public class MainActivity extends AppCompatActivity {
         signup_button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                openActivity3();
+                openActivityRegistration();
             }
         });
 
         login_button.setOnClickListener((v) -> loginUser(email_input.getText().toString(), password_input.getText().toString()));
+    }
+
+
+
+    protected void onStart() {
+        super.onStart();
+        // Check if user is signed in (non-null) and update UI accordingly.
+        FirebaseUser currentUser = mAuth.getCurrentUser();
+        if(currentUser != null){
+            openActivityUserAccount();
+        }
     }
 
     private void loginUser(String L_email, String L_password)
@@ -77,7 +85,7 @@ public class MainActivity extends AppCompatActivity {
     }
     private void handleLogin(Task<AuthResult> authResultTask) {
         if (authResultTask.isSuccessful()) {
-            Intent intent = new Intent (this, Your_account2.class);
+            Intent intent = new Intent (this, userAccount.class);
             startActivity(intent);
 
         }
@@ -87,12 +95,20 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
-    public void openActivity3 ()
+    public void openActivityRegistration ()
     {
 
         Intent intent = new Intent (this, registration.class);
         startActivity(intent);
     }
+
+    public void openActivityUserAccount ()
+    {
+
+        Intent intent = new Intent (this, userAccount.class);
+        startActivity(intent);
+    }
+
 
 
 

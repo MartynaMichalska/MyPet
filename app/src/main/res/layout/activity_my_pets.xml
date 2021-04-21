@@ -4,4 +4,12 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".myPets"/>
+    tools:context=".myPets">
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/firestore_list"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:layout_editor_absoluteX="138dp"
+        tools:layout_editor_absoluteY="187dp" />
+</androidx.constraintlayout.widget.ConstraintLayout>

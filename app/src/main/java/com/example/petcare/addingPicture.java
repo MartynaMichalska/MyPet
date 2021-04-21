@@ -1,12 +1,11 @@
 package com.example.petcare;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.petcare.db.Pet;
 import com.google.android.gms.tasks.Task;
@@ -15,7 +14,6 @@ import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.FirebaseFirestore;
 
 public class addingPicture extends AppCompatActivity {
-    private Button next;
     private FirebaseAuth mAuth;
     private FirebaseFirestore db;
     @Override
@@ -24,13 +22,8 @@ public class addingPicture extends AppCompatActivity {
         mAuth = FirebaseAuth.getInstance();
         db = FirebaseFirestore.getInstance();
         setContentView(R.layout.activity_adding_picture);
-        next= (Button) findViewById(R.id.addPicButton);
-        next.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                openActivity();
-            }
-        });
+        Button next = findViewById(R.id.addPicButton);
+        next.setOnClickListener(v -> openActivity());
     }
     public void openActivity()
     {

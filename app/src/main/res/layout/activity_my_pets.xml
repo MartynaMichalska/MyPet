@@ -4,4 +4,15 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".myPets"/>
+    tools:context=".myPets">
+
+    <Button
+        android:id="@+id/addPet"
+        android:layout_width="150dp"
+        android:layout_height="62dp"
+        android:layout_marginTop="518dp"
+        android:text="ADD NEW PET"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+</androidx.constraintlayout.widget.ConstraintLayout>

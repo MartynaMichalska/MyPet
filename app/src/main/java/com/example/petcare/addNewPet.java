@@ -16,7 +16,7 @@ public class addNewPet extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add);
 
-        add = (Button) findViewById(R.id.button2);
+        add = (Button) findViewById(R.id.addPet);
         add.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

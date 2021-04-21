@@ -12,27 +12,17 @@ import android.widget.Button;
 import com.google.firebase.auth.FirebaseAuth;
 
 public class userAccount extends AppCompatActivity {
-    private Button showPets;
-    private Button signOut;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_users_account);
         Intent intent = getIntent();
-        showPets = (Button) findViewById(R.id.showPetsButton);
-        showPets.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                openActivityMyPets();
-            }
-        });
-        signOut = (Button) findViewById(R.id.logoutButton);
-        signOut.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                FirebaseAuth.getInstance().signOut();
-                finish();
-            }
+        Button showPets = (Button) findViewById(R.id.showPetsButton);
+        showPets.setOnClickListener(v -> openActivityMyPets());
+        Button signOut = findViewById(R.id.logoutButton);
+        signOut.setOnClickListener(v -> {
+            FirebaseAuth.getInstance().signOut();
+            finish();
         });
     }
 

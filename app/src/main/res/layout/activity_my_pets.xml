@@ -6,13 +6,22 @@
     android:layout_height="match_parent"
     tools:context=".myPets">
 
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/firestore_list"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:layout_editor_absoluteX="138dp"
+        tools:layout_editor_absoluteY="187dp" />
+
     <Button
         android:id="@+id/addPet"
-        android:layout_width="150dp"
-        android:layout_height="62dp"
-        android:layout_marginTop="518dp"
-        android:text="ADD NEW PET"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="159dp"
+        android:layout_marginBottom="280dp"
+        android:text="ADD A NEW PET"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/firestore_list" />
 </androidx.constraintlayout.widget.ConstraintLayout>

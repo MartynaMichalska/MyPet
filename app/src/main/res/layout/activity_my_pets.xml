@@ -8,19 +8,22 @@
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/firestore_list"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        tools:layout_editor_absoluteX="138dp"
-        tools:layout_editor_absoluteY="187dp" />
+        android:layout_width="184dp"
+        android:layout_height="266dp"
+        android:layout_marginTop="160dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.511"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <Button
         android:id="@+id/addPet"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="159dp"
-        android:layout_marginBottom="280dp"
+        android:layout_width="149dp"
+        android:layout_height="66dp"
+        android:layout_marginTop="235dp"
+        android:backgroundTint="#DA8486"
+        android:fontFamily="@font/autour_one"
         android:text="ADD A NEW PET"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/firestore_list" />

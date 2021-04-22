@@ -20,6 +20,7 @@ public class userAccount extends AppCompatActivity {
         Button showPets = (Button) findViewById(R.id.showPetsButton);
         showPets.setOnClickListener(v -> openActivityMyPets());
         Button signOut = findViewById(R.id.logoutButton);
+
         signOut.setOnClickListener(v -> {
             FirebaseAuth.getInstance().signOut();
             finish();
@@ -28,7 +29,7 @@ public class userAccount extends AppCompatActivity {
 
     public void openActivityMyPets ()
     {
-        Intent intent = new Intent (this, addNewPet.class);
+        Intent intent = new Intent (this, myPets.class);
         startActivity(intent);
     }
 

@@ -20,7 +20,7 @@
         android:id="@+id/addPet"
         android:layout_width="149dp"
         android:layout_height="66dp"
-        android:layout_marginTop="235dp"
+        android:layout_marginTop="120dp"
         android:backgroundTint="#DA8486"
         android:fontFamily="@font/autour_one"
         android:text="ADD A NEW PET"

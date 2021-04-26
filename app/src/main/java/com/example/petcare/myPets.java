@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -22,6 +23,7 @@ public class myPets extends AppCompatActivity {
     private RecyclerView mFirestoreList;
     private FirebaseFirestore firebaseFirestore;
     private FirestoreRecyclerAdapter adapter;
+    private Button addingPet;
 
 
     @Override
@@ -31,11 +33,18 @@ public class myPets extends AppCompatActivity {
 
         firebaseFirestore = FirebaseFirestore.getInstance();
         mFirestoreList = findViewById(R.id.firestore_list);
+        addingPet= (Button) findViewById(R.id.addPet);
 
         Query query = firebaseFirestore.collection("pets");
         FirestoreRecyclerOptions<Pet> options = new FirestoreRecyclerOptions.Builder<Pet>()
                     .setQuery(query, Pet.class)
                     .build();
+        addingPet.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                openActivity();
+            }
+        });
         adapter = new FirestoreRecyclerAdapter<Pet, PetViewHolder>(options) {
             @Override
             protected void onBindViewHolder(@NonNull PetViewHolder holder, int position, @NonNull Pet pet) {
@@ -67,9 +76,9 @@ public class myPets extends AppCompatActivity {
     }
 
 
-    private class PetViewHolder extends RecyclerView.ViewHolder{
-        private TextView list_name;
-        private TextView list_type;
+    private static class PetViewHolder extends RecyclerView.ViewHolder{
+        private final TextView list_name;
+        private final TextView list_type;
 
         public PetViewHolder(@NonNull View itemView) {
             super(itemView);
@@ -77,6 +86,7 @@ public class myPets extends AppCompatActivity {
             list_type = itemView.findViewById(R.id.list_type);
         }
     }
+
     @Override
     protected void onStop() {
         super.onStop();
@@ -88,4 +98,9 @@ public class myPets extends AppCompatActivity {
         adapter.startListening();
     }
 
+    public void openActivity()
+    {
+        Intent intent = new Intent (this, chooseType.class);
+        startActivity(intent);
+    }
 }

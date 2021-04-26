@@ -1,5 +1,6 @@
 package com.example.petcare;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -40,6 +41,7 @@ public class myPets extends AppCompatActivity {
             protected void onBindViewHolder(@NonNull PetViewHolder holder, int position, @NonNull Pet pet) {
                 holder.list_name.setText(pet.getName());
                 holder.list_type.setText(pet.getBreed());
+                holder.itemView.setOnClickListener(v -> navigateToEditPet(pet.getId()));
             }
 
             @NonNull
@@ -57,6 +59,12 @@ public class myPets extends AppCompatActivity {
 
     }
 
+    private void navigateToEditPet(String id) {
+        Intent intent = new Intent(this, editPet.class);
+        intent.putExtra(editPet.Arg_PetID,id);
+        startActivity(intent);
+
+    }
 
 
     private class PetViewHolder extends RecyclerView.ViewHolder{

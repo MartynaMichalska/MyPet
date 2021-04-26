@@ -28,7 +28,7 @@ public class userAccount extends AppCompatActivity {
 
     public void openActivityMyPets ()
     {
-        Intent intent = new Intent (this, addNewPet.class);
+        Intent intent = new Intent (this, myPets.class);
         startActivity(intent);
     }
 

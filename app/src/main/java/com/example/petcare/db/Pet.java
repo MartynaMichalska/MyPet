@@ -84,19 +84,19 @@ public class Pet {
         return ownerId;
     }
 
-    public boolean isSterlilised() {
+    public boolean isIsSterlilised() {
         return isSterlilised;
     }
 
-    public boolean isMeds() {
+    public boolean isIsMeds() {
         return isMeds;
     }
 
-    public boolean isMale() {
+    public boolean isIsMale() {
         return isMale;
     }
 
-    public boolean isDog() {
+    public boolean isIsDog() {
         return isDog;
     }
 

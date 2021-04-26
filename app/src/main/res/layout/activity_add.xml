@@ -10,10 +10,11 @@
         android:id="@+id/textView12"
         android:layout_width="346dp"
         android:layout_height="32dp"
-        android:layout_marginTop="145dp"
+        android:layout_marginTop="144dp"
         android:text="You have no pets assigned at the moment."
         android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.492"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 

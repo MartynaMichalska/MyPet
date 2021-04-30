@@ -2,6 +2,7 @@ package com.example.petcare;
 
 import android.app.ProgressDialog;
 import android.content.Intent;
+import android.graphics.Bitmap;
 import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
@@ -15,6 +16,7 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.petcare.db.Pet;
+import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
@@ -27,7 +29,12 @@ import com.google.firebase.storage.OnProgressListener;
 import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
 
+import java.io.ByteArrayOutputStream;
+import java.io.File;
+import java.io.IOException;
 import java.util.UUID;
+
+import id.zelory.compressor.Compressor;
 
 public class addingPicture extends AppCompatActivity {
     private FirebaseAuth mAuth;
@@ -36,6 +43,7 @@ public class addingPicture extends AppCompatActivity {
     public Uri imageUri;
     private FirebaseStorage storage;
     private StorageReference storageReference;
+    private Uri storageUri;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -78,6 +86,13 @@ public class addingPicture extends AppCompatActivity {
         final ProgressDialog pd = new ProgressDialog(this);
         pd.setTitle("Uploading...");
         pd.show();
+        /*byte[] dataToSend = resizeImage(imageUri);
+        if(dataToSend == null){
+            pd.cancel();
+            Snackbar.make(findViewById(android.R.id.content), "Image resize error", Snackbar.LENGTH_LONG).show();
+            return;
+        }*/
+
         final String randomKey = UUID.randomUUID().toString();
         StorageReference petPic = storageReference.child("images/"+randomKey);
         petPic.putFile(imageUri)
@@ -85,6 +100,7 @@ public class addingPicture extends AppCompatActivity {
                     @Override
                     public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
                         pd.dismiss();
+                        getDownloadUrl(petPic);
                         Snackbar.make(findViewById(android.R.id.content), "Image uploaded", Snackbar.LENGTH_LONG).show();
                     }
                 })
@@ -104,11 +120,43 @@ public class addingPicture extends AppCompatActivity {
                 });
     }
 
+    private byte[] resizeImage(Uri imageUri) {
+        try {
+            Bitmap bitmap = new Compressor(this)
+                    .setMaxHeight(800) //Set height and width
+                    .setMaxWidth(600)
+                    .setQuality(85) // Set Quality
+                    .compressToBitmap(new File(imageUri.getPath()));
+            ByteArrayOutputStream baos = new ByteArrayOutputStream();
+            bitmap.compress(Bitmap.CompressFormat.JPEG, 85, baos);
+            return baos.toByteArray();
+
+        } catch (IOException e) {
+            e.printStackTrace();
+            return null;
+        }
+
+
+    }
+
+    private void getDownloadUrl(StorageReference petPic) {
+        petPic.getDownloadUrl().addOnCompleteListener(this, new OnCompleteListener<Uri>() {
+            @Override
+            public void onComplete(@NonNull Task<Uri> task) {
+                storageUri = task.getResult();
+            }
+        });
+    }
+
 
     public void openActivity()
     {
+        if(storageUri == null){
+            Toast.makeText(this, "Photo was not taken.", Toast.LENGTH_SHORT).show();
+            return;
+        }
         DocumentReference doc = db.collection("pets").document();
-        doc.set(Pet.create(getIntent(),doc.getId(),mAuth.getCurrentUser().getUid(), imageUri.toString()))
+        doc.set(Pet.create(getIntent(),doc.getId(),mAuth.getCurrentUser().getUid(), storageUri.toString()))
                 .addOnCompleteListener(this, this::handleAdd);
         Intent intent= new Intent(this,addPetFinish.class);
         startActivity(intent);

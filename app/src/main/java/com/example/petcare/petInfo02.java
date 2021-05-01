@@ -47,7 +47,7 @@ public class petInfo02 extends AppCompatActivity {
         intent.putExtra("name", getIntent().getStringExtra("name"));
         intent.putExtra("dateOfBirth",  getIntent().getStringExtra("dateOfBirth"));
         intent.putExtra("breed",  getIntent().getStringExtra("breed"));
-        intent.putExtra("weight",  getIntent().getStringExtra("weight"));
+        intent.putExtra("weight",  getIntent().getIntExtra("weight", 0));
         startActivity(intent);
     }
 }

@@ -29,7 +29,10 @@ public class petInfo01 extends AppCompatActivity {
     private TextView name;
     private TextView weight;
     private Spinner petStrain;
-    private TextView age;
+    private Spinner dateDay;
+    private Spinner dateMonth;
+    private Spinner dateYear;
+
 
     @RequiresApi(api = Build.VERSION_CODES.O)
     @Override
@@ -41,26 +44,28 @@ public class petInfo01 extends AppCompatActivity {
         next= (Button) findViewById(R.id.petInfoNext);
         name=(TextView) findViewById(R.id.petName);
         weight=(TextView) findViewById(R.id.petWeight);
-        age=(TextView) findViewById(R.id.petAge);
         petStrain = (Spinner) findViewById(R.id.petStrain);
-        SimpleDateFormat formatter = new SimpleDateFormat("dd-MM-yyyy");
-        Date date = null;
-        try {
-            date = formatter.parse(age.getText().toString());
-        } catch (ParseException e) {
-            e.printStackTrace();
-        }
+       dateDay = (Spinner) findViewById(R.id.dateDay);
+        dateMonth = (Spinner) findViewById(R.id.dateMnth);
+        dateYear = (Spinner) findViewById(R.id.dateYer);
+        Integer position1 = dateDay.getSelectedItemPosition();
+        Integer position2 = dateMonth.getSelectedItemPosition();
+        Integer position3 = dateYear.getSelectedItemPosition();
+        String dateDay1 = getResources().getStringArray(R.array.dayz)[position1];
+        String dateMont1 = getResources().getStringArray(R.array.mothz)[position2];
+        String dateYear1 = getResources().getStringArray(R.array.yrs)[position3];
+      //  Date finalDate;
+        //finalDate = new Date (Integer.parseInt(dateDay1),Integer.parseInt(dateMont1),Integer.parseInt(dateYear1));
+String date= dateDay1+"-"+dateMont1+"-"+dateYear1;
 
-
-        Date finalDate = date;
         next.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Integer position = petStrain.getSelectedItemPosition();
-               if(position > -1 && dataValidation(name.getText().toString(), weight.getText().toString(), age.getText().toString()))
+               if(position > -1 && dataValidation(name.getText().toString(), weight.getText().toString(), dateDay1, dateMont1, dateYear1))
                {
                    String petStrain = getResources().getStringArray(R.array.Strain)[position];
-                   openActivity(name.getText().toString(), Integer.parseInt(weight.getText().toString()), finalDate,  petStrain);
+                   openActivity(name.getText().toString(), Integer.parseInt(weight.getText().toString()), date,  petStrain);
                }
 
 
@@ -69,19 +74,14 @@ public class petInfo01 extends AppCompatActivity {
 
 
     }
-    public boolean dataValidation(String name, String weight, String age) {
+    public boolean dataValidation(String name, String weight, String day, String m, String y) {
 
-        if (!name.isEmpty() && !weight.isEmpty() && !age.isEmpty()) {
+        if (!name.isEmpty() && !weight.isEmpty() ) {
 
                 if (Integer.parseInt(weight) > 0 && Integer.parseInt(weight) < 40) {
 
-                    if (age.contains("-")) {
                         return true;
 
-                    } else {
-                        Toast.makeText(this, "Wrong birthday value", Toast.LENGTH_SHORT).show();
-                        return false;
-                    }
                 } else {
                     Toast.makeText(this, "Wrong weight value", Toast.LENGTH_SHORT).show();
                     return false;
@@ -96,7 +96,7 @@ public class petInfo01 extends AppCompatActivity {
 
     }
 
-    public void openActivity (String name, int weight, Date dateOfBirth, String breed)
+    public void openActivity (String name, int weight, String dateOfBirth, String breed)
     {
         Intent intent= new Intent(this,petInfo02.class);
         intent.putExtra("isMale", getIntent().getBooleanExtra("isMale", false));;

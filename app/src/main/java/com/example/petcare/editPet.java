@@ -248,7 +248,7 @@ public class editPet extends AppCompatActivity {
             @Override
             public void onComplete(@NonNull Task<Uri> task) {
                 Uri storageUri = task.getResult();
-                updatePet(storageUri.getPath());
+                updatePet("https://firebasestorage.googleapis.com"+storageUri.getPath());
             }
         });
     }

@@ -5,6 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
+
     <TextView
         android:id="@+id/textView6"
         android:layout_width="wrap_content"
@@ -66,29 +67,39 @@
             android:hint="Your pet's name:" />
     </com.google.android.material.textfield.TextInputLayout>
 
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/petAge2"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="60dp"
-        app:layout_constraintTop_toBottomOf="@+id/petStrain"
-        tools:layout_editor_absoluteX="201dp">
+    <Spinner
+        android:id="@+id/dateDay"
+        android:layout_width="96dp"
+        android:layout_height="41dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="74dp"
+        android:layout_weight="1"
+        android:backgroundTint="#DA8486"
+        android:entries="@array/dayz"
+        app:layout_constraintEnd_toStartOf="@+id/dateMnth"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/petStrain" />
 
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/petAge"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="Your pet's birth date (DD-MM-YYYY)"/>
-            //android:inputType="datetime" />
-    </com.google.android.material.textfield.TextInputLayout>
+    <Spinner
+        android:id="@+id/dateMnth"
+        android:layout_width="105dp"
+        android:layout_height="41dp"
+        android:layout_marginTop="26dp"
+        android:layout_weight="1"
+        android:backgroundTint="#DA8486"
+        android:entries="@array/mothz"
+        app:layout_constraintEnd_toStartOf="@+id/dateYer"
+        app:layout_constraintStart_toEndOf="@+id/dateDay"
+        app:layout_constraintTop_toBottomOf="@+id/textView3" />
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/petWeight2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="60dp"
-        app:layout_constraintTop_toBottomOf="@+id/petAge2"
-        tools:layout_editor_absoluteX="201dp">
+        android:layout_marginTop="70dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/dateDay">
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/petWeight"
@@ -114,5 +125,32 @@
         app:layout_constraintHorizontal_bias="0.501"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/petWeight2" />
+
+    <Spinner
+        android:id="@+id/dateYer"
+        android:layout_width="133dp"
+        android:layout_height="41dp"
+        android:layout_marginTop="26dp"
+        android:layout_marginEnd="45dp"
+        android:backgroundTint="#DA8486"
+        android:entries="@array/yrs"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toEndOf="@+id/dateMnth"
+        app:layout_constraintTop_toBottomOf="@+id/textView3" />
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="149dp"
+        android:layout_marginTop="25dp"
+        android:layout_marginEnd="148dp"
+        android:fontFamily="@font/autour_one"
+        android:text="Birth date:"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/petStrain" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

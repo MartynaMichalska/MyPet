@@ -2,6 +2,8 @@ package com.example.petcare.db;
 
 import android.content.Intent;
 
+import java.util.Date;
+
 public class Pet {
     /*
     intent.putExtra("isSterilised",isSterilised);

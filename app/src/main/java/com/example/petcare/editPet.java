@@ -71,6 +71,7 @@ public class editPet extends AppCompatActivity {
             public void onEvent(@Nullable DocumentSnapshot value, @Nullable FirebaseFirestoreException error) {
                 if (value.exists()) {
                     fillUI(value.toObject(Pet.class));
+
                 }
             }
         });

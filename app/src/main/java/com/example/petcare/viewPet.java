@@ -1,5 +1,6 @@
 package com.example.petcare;
 
+import android.annotation.SuppressLint;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.graphics.Bitmap;
@@ -40,7 +41,7 @@ import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.OnProgressListener;
 import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
-
+import com.example.petcare.db.Pet;
 import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.IOException;
@@ -77,7 +78,8 @@ public class viewPet extends AppCompatActivity {
                 }
             }
         });
-        editPet_btn.setOnClickListener(v -> openActivityEditPet());
+
+        editPet_btn.setOnClickListener(v -> openActivityEditPet(petID));
 
     }
 
@@ -94,25 +96,27 @@ public class viewPet extends AppCompatActivity {
 
     }
 
-    public void openActivityEditPet() {
-        Intent intent = new Intent (this, editPet.class);
-        startActivity(intent);
+    public void openActivityEditPet(String id) {
+        Intent intent2 = new Intent (this, editPet.class);
+        intent2.putExtra(editPet.Arg_PetID,id);
+        startActivity(intent2);
     }
 
 
+    @SuppressLint("SetTextI18n")
     private void fillUI(Pet pet) {
 
         name.setText(pet.getName());
         breed.setText("Breed: "+pet.getBreed());
         birth.setText("Age: "+pet.getDateOfBirth());
         weight.setText("Weight: "+pet.getWeight()+" kg");
-        if(pet.isIsMale()==true){
+        if(pet.isIsMale()){
             sex.setText("Sex: male");
         }
         else{
             sex.setText("Sex: female");
         }
-        if(pet.isIsDog()==true){
+        if(pet.isIsDog()){
             type.setText("dog");
         }
         else{

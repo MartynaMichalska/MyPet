@@ -86,7 +86,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:backgroundTint="#DA8486"
-            android:text="EDIT" />
+            android:text="@string/edit" />
 
     </LinearLayout>
 </androidx.core.widget.NestedScrollView>

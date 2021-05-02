@@ -1,11 +1,13 @@
 package com.example.petcare;
 
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -13,6 +15,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.bumptech.glide.Glide;
 import com.example.petcare.db.Pet;
 import com.firebase.ui.firestore.FirestoreRecyclerAdapter;
 import com.firebase.ui.firestore.FirestoreRecyclerOptions;
@@ -49,8 +52,8 @@ public class myPets extends AppCompatActivity {
             @Override
             protected void onBindViewHolder(@NonNull PetViewHolder holder, int position, @NonNull Pet pet) {
                 holder.list_name.setText(pet.getName());
-                holder.list_type.setText(pet.getBreed());
-                holder.itemView.setOnClickListener(v -> navigateToEditPet(pet.getId()));
+                holder.itemView.setOnClickListener(v -> navigateToViewPet(pet.getId()));
+
             }
 
             @NonNull
@@ -68,8 +71,8 @@ public class myPets extends AppCompatActivity {
 
     }
 
-    private void navigateToEditPet(String id) {
-        Intent intent = new Intent(this, editPet.class);
+    private void navigateToViewPet(String id) {
+        Intent intent = new Intent(this, viewPet.class);
         intent.putExtra(editPet.Arg_PetID,id);
         startActivity(intent);
 
@@ -78,12 +81,11 @@ public class myPets extends AppCompatActivity {
 
     private static class PetViewHolder extends RecyclerView.ViewHolder{
         private final TextView list_name;
-        private final TextView list_type;
+
 
         public PetViewHolder(@NonNull View itemView) {
             super(itemView);
             list_name = itemView.findViewById(R.id.list_name);
-            list_type = itemView.findViewById(R.id.list_type);
         }
     }
 

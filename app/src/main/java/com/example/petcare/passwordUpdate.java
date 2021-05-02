@@ -5,7 +5,6 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
@@ -22,6 +21,7 @@ public class passwordUpdate extends AppCompatActivity {
     FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
     private TextView newPass;
     private TextView oldPass;
+    private TextView newPassRpt;
     private Button save;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,12 +29,14 @@ public class passwordUpdate extends AppCompatActivity {
         setContentView(R.layout.activity_password_update);
         newPass=(TextView) findViewById(R.id.newPass) ;
         oldPass=(TextView) findViewById(R.id.currentPass) ;
+        newPassRpt=(TextView) findViewById(R.id.newPassRepeat) ;
         save=(Button) findViewById(R.id.savePass) ;
 save.setOnClickListener(new View.OnClickListener() {
     @Override
     public void onClick(View v) {
 
-
+if(newPass.getText().toString().equals(newPassRpt.getText().toString()))
+{
         AuthCredential credential = EmailAuthProvider
                 .getCredential(user.getEmail(),oldPass.getText().toString() );
 
@@ -61,6 +63,13 @@ save.setOnClickListener(new View.OnClickListener() {
                         }
                     }
                 });
+    }
+else
+{
+    Toast.makeText(getApplicationContext(),"Passwords not matching! Please try again", Toast.LENGTH_LONG).show();
+    openActivityuserAcc();
+
+}
     }
 });
 

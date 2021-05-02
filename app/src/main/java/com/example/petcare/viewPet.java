@@ -94,7 +94,7 @@ public class viewPet extends AppCompatActivity {
 
     }
 
-    private void openActivityEditPet() {
+    public void openActivityEditPet() {
         Intent intent = new Intent (this, editPet.class);
         startActivity(intent);
     }

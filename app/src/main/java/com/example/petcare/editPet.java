@@ -150,7 +150,7 @@ public class editPet extends AppCompatActivity {
                 weight,
                 medsHowOften,
                 photo
-                )).addOnCompleteListener(this, new OnCompleteListener<Void>() {
+        )).addOnCompleteListener(this, new OnCompleteListener<Void>() {
             @Override
             public void onComplete(@NonNull Task<Void> task) {
                 onBackPressed();
@@ -248,7 +248,7 @@ public class editPet extends AppCompatActivity {
             @Override
             public void onComplete(@NonNull Task<Uri> task) {
                 Uri storageUri = task.getResult();
-                updatePet("https://firebasestorage.googleapis.com"+storageUri.getPath());
+                updatePet(storageUri.toString());
             }
         });
     }

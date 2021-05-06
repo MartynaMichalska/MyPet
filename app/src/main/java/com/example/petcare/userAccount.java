@@ -22,6 +22,8 @@ public class userAccount extends AppCompatActivity {
         Button showPets = (Button) findViewById(R.id.showPetsButton);
         showPets.setOnClickListener(v -> openActivityMyPets());
         Button signOut = findViewById(R.id.logoutButton);
+        Button callendar =(Button) findViewById(R.id.callendarBt);
+        callendar.setOnClickListener(v -> openActivityCallendar());
         accountMngBt=(Button) findViewById(R.id.accountManagementBt) ;
         accountMngBt.setOnClickListener(v -> openActivityAccountMng());
 
@@ -39,6 +41,11 @@ public class userAccount extends AppCompatActivity {
     public void openActivityAccountMng ()
     {
         Intent intent = new Intent (this, accountManagement.class);
+        startActivity(intent);
+    }
+    public void openActivityCallendar ()
+    {
+        Intent intent = new Intent (this, callendarActivity.class);
         startActivity(intent);
     }
 

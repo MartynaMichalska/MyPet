@@ -19,6 +19,7 @@ import com.bumptech.glide.Glide;
 import com.example.petcare.db.Pet;
 import com.firebase.ui.firestore.FirestoreRecyclerAdapter;
 import com.firebase.ui.firestore.FirestoreRecyclerOptions;
+import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.Query;
 
@@ -38,7 +39,7 @@ public class myPets extends AppCompatActivity {
         mFirestoreList = findViewById(R.id.firestore_list);
         addingPet= (Button) findViewById(R.id.addPet);
 
-        Query query = firebaseFirestore.collection("pets");
+        Query query = firebaseFirestore.collection("pets").whereEqualTo("ownerId", FirebaseAuth.getInstance().getCurrentUser().getUid());
         FirestoreRecyclerOptions<Pet> options = new FirestoreRecyclerOptions.Builder<Pet>()
                     .setQuery(query, Pet.class)
                     .build();
@@ -53,6 +54,7 @@ public class myPets extends AppCompatActivity {
             protected void onBindViewHolder(@NonNull PetViewHolder holder, int position, @NonNull Pet pet) {
                 holder.list_name.setText(pet.getName());
                 holder.itemView.setOnClickListener(v -> navigateToViewPet(pet.getId()));
+                holder.notificationsButton.setOnClickListener(v -> navigateToNotifications(pet.getId()));
 
             }
 
@@ -71,6 +73,12 @@ public class myPets extends AppCompatActivity {
 
     }
 
+    private void navigateToNotifications(String id) {
+        Intent intent = new Intent(this, callendarActivity.class);
+        intent.putExtra("petID", id);
+        startActivity(intent);
+    }
+
     private void navigateToViewPet(String id) {
         Intent intent = new Intent(this, viewPet.class);
         intent.putExtra(editPet.Arg_PetID,id);
@@ -81,11 +89,13 @@ public class myPets extends AppCompatActivity {
 
     private static class PetViewHolder extends RecyclerView.ViewHolder{
         private final TextView list_name;
+        private final Button notificationsButton;
 
 
         public PetViewHolder(@NonNull View itemView) {
             super(itemView);
             list_name = itemView.findViewById(R.id.list_name);
+            notificationsButton=(Button) itemView.findViewById(R.id.notificationsBT);
         }
     }
 

@@ -10,7 +10,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.PetCare">
-        <activity android:name=".deleteAccount"></activity>
+        <activity android:name=".notificationActivity"></activity>
+        <activity android:name=".callendarActivity" />
+        <activity android:name=".deleteAccount" />
         <activity android:name=".passwordUpdate" />
         <activity android:name=".accountManagement" />
         <activity android:name=".myPets" />

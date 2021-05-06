@@ -3,6 +3,7 @@ package com.example.petcare;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.graphics.Bitmap;
+import android.graphics.drawable.BitmapDrawable;
 import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
@@ -86,16 +87,17 @@ public class addingPicture extends AppCompatActivity {
         final ProgressDialog pd = new ProgressDialog(this);
         pd.setTitle("Uploading...");
         pd.show();
-        /*byte[] dataToSend = resizeImage(imageUri);
+
+        byte[] dataToSend = getFromImageView(picture);
         if(dataToSend == null){
             pd.cancel();
             Snackbar.make(findViewById(android.R.id.content), "Image resize error", Snackbar.LENGTH_LONG).show();
             return;
-        }*/
+        }
 
         final String randomKey = UUID.randomUUID().toString();
         StorageReference petPic = storageReference.child("images/"+randomKey);
-        petPic.putFile(imageUri)
+        petPic.putBytes(dataToSend)
                 .addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
                     @Override
                     public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
@@ -136,6 +138,15 @@ public class addingPicture extends AppCompatActivity {
             return null;
         }
 
+
+    }
+    private byte [] getFromImageView(ImageView imageView)
+    {
+        Bitmap bitmap = ((BitmapDrawable) imageView.getDrawable()).getBitmap();
+        ByteArrayOutputStream baos = new ByteArrayOutputStream();
+        bitmap.compress(Bitmap.CompressFormat.JPEG, 50, baos);
+        byte[] imageInByte = baos.toByteArray();
+        return imageInByte;
 
     }
 

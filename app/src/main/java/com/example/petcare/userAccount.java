@@ -2,14 +2,30 @@
 
 package com.example.petcare;
 
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.AlarmManager;
+
+import android.app.PendingIntent;
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
+import com.example.petcare.db.Notification;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.firestore.EventListener;
+import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.FirebaseFirestoreException;
+import com.google.firebase.firestore.Query;
+import com.google.firebase.firestore.QuerySnapshot;
+
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.List;
+import java.util.Locale;
 
 
 public class userAccount extends AppCompatActivity {
@@ -17,6 +33,7 @@ public class userAccount extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        syncNotifications();
         setContentView(R.layout.activity_users_account);
         Intent intent = getIntent();
         Button showPets = (Button) findViewById(R.id.showPetsButton);
@@ -31,6 +48,33 @@ public class userAccount extends AppCompatActivity {
             FirebaseAuth.getInstance().signOut();
             finish();
         });
+    }
+
+    private void syncNotifications() {
+        FirebaseFirestore firebaseFirestore = FirebaseFirestore.getInstance();
+        firebaseFirestore.collection("notifications")
+                .whereEqualTo("ownerId", FirebaseAuth.getInstance().getCurrentUser().getUid())
+                .addSnapshotListener(this, new EventListener<QuerySnapshot>() {
+                    @Override
+                    public void onEvent(@Nullable QuerySnapshot value, @Nullable FirebaseFirestoreException error) {
+                        List<Notification> items = value.toObjects(Notification.class);
+                        AlarmManager manager = (AlarmManager)(getSystemService( Context.ALARM_SERVICE ));
+                        SimpleDateFormat dateFormat = new SimpleDateFormat("dd-MM-yyyy",new Locale("pl","PL"));
+                        try {
+                            for (Notification notification : items) {
+                                Calendar calendar = Calendar.getInstance();
+                                calendar.setTime(dateFormat.parse(notification.getDate()));
+                                Intent serviceIntent = new Intent(getBaseContext(), NotificationService.class);
+                                PendingIntent intent = PendingIntent.getBroadcast(getBaseContext(), 101, serviceIntent, 0);
+                                manager.setExact(AlarmManager.RTC_WAKEUP, calendar.getTimeInMillis(), intent);
+                            }
+                        }
+                        catch(Throwable e){
+                        }
+
+
+                    }
+                });
     }
 
     public void openActivityMyPets ()

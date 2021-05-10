@@ -42,12 +42,7 @@ public class callendarActivity extends AppCompatActivity {
         final String petID = getIntent().getStringExtra("petID");
 
         Query query = firebaseFirestore.collection("notifications").whereEqualTo("petID", petID);
-        query.addSnapshotListener(this, new EventListener<QuerySnapshot>() {
-            @Override
-            public void onEvent(@Nullable QuerySnapshot value, @Nullable FirebaseFirestoreException error) {
-               Log.e("query", "data:"+value.toObjects(Notification.class).size() + "Error:"+error);
-            }
-        });
+
         FirestoreRecyclerOptions<Notification> options = new FirestoreRecyclerOptions.Builder<Notification>()
                 .setQuery(query, Notification.class)
                 .build();
@@ -104,4 +99,15 @@ public class callendarActivity extends AppCompatActivity {
             dateText = itemView.findViewById(R.id.callendarItemDate);
         }
     }
+    @Override
+    protected void onStop() {
+        super.onStop();
+        adapter.stopListening();
+    }
+    @Override
+    protected void onStart() {
+        super.onStart();
+        adapter.startListening();
+    }
+
 }

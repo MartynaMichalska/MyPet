@@ -92,10 +92,12 @@ public class myPets extends AppCompatActivity {
         private final Button notificationsButton;
 
 
+
         public PetViewHolder(@NonNull View itemView) {
             super(itemView);
             list_name = itemView.findViewById(R.id.list_name);
             notificationsButton=(Button) itemView.findViewById(R.id.notificationsBT);
+
         }
     }
 

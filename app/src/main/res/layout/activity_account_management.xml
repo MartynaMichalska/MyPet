@@ -19,25 +19,12 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <EditText
-        android:id="@+id/yourEmail"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="95dp"
-        android:layout_marginTop="28dp"
-        android:layout_marginEnd="106dp"
-        android:ems="10"
-        android:inputType="textPersonName"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView4" />
-
     <Button
         android:id="@+id/changePasswordBt"
         android:layout_width="179dp"
         android:layout_height="75dp"
         android:layout_marginStart="116dp"
-        android:layout_marginTop="60dp"
+        android:layout_marginTop="133dp"
         android:layout_marginEnd="116dp"
         android:background="#000000"
         android:backgroundTint="#DA8486"
@@ -46,7 +33,7 @@
         android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/yourEmail" />
+        app:layout_constraintTop_toBottomOf="@+id/textView4" />
 
     <Button
         android:id="@+id/changeEmailBt"
@@ -76,4 +63,16 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/changeEmailBt" />
+
+    <TextView
+        android:id="@+id/yourEmail"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="91dp"
+        android:fontFamily="@font/autour_one"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>

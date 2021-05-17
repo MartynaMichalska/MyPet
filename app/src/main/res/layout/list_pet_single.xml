@@ -7,17 +7,24 @@
     android:padding="16dp"
     >
 
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toStartOf="@+id/list_name"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/list_name" />
 
     <TextView
         android:id="@+id/list_name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="40dp"
         android:fontFamily="@font/autour_one"
         android:text="TextView"
         android:textColor="#E66A6A"
         android:textSize="20dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.045"
+        app:layout_constraintHorizontal_bias="0.396"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -25,7 +32,10 @@
         android:id="@+id/notificationsBT"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:backgroundTint="#FFFFFF"
+        android:fontFamily="@font/autour_one"
         android:text="Notifications"
+        android:textColor="#EFC5C5"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/list_name" />

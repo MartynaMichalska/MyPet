@@ -37,6 +37,7 @@ public class eventsActivity extends AppCompatActivity {
     private FirebaseFirestore firebaseFirestore;
     private MaterialCalendarView petsCalendar;
     private List<Notification> notifications;
+    private Button backBT;
     //private final TextView petsLegend = findViewById(R.id.pets_legend_txt);
 
 
@@ -46,6 +47,13 @@ public class eventsActivity extends AppCompatActivity {
         setContentView(R.layout.activity_events);
         firebaseFirestore = FirebaseFirestore.getInstance();
         petsCalendar = findViewById(R.id.pets_calendar_view);
+        backBT= (Button) findViewById(R.id.backBT) ;
+        backBT.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                openMainActivity();
+            }
+        });
 
         Query query = firebaseFirestore.collection("notifications")
                 .whereEqualTo("ownerID", FirebaseAuth.getInstance().getCurrentUser().getUid());
@@ -93,6 +101,11 @@ public class eventsActivity extends AppCompatActivity {
     private void navigateToEditNotification(String notificationID) {
         Intent intent = new Intent(this, notificationActivity.class);
         intent.putExtra("notificationID", notificationID);
+        startActivity(intent);
+    }
+    public void openMainActivity()
+    {
+        Intent intent = new Intent (this, userAccount.class);
         startActivity(intent);
     }
 

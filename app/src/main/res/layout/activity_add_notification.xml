@@ -12,32 +12,36 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="100dp"
         android:ems="10"
+        android:hint="Notification title"
         android:inputType="textPersonName"
-        android:text="Name"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
         android:id="@+id/selectDateBt"
-        android:layout_width="126dp"
-        android:layout_height="69dp"
-        android:layout_marginTop="224dp"
+        android:layout_width="203dp"
+        android:layout_height="57dp"
+        android:layout_marginTop="40dp"
+        android:backgroundTint="#DA8486"
+        android:fontFamily="@font/autour_one"
+        android:foregroundTint="#000000"
         android:text="select date"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.487"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/addingTextNotification" />
 
     <Button
         android:id="@+id/saveNotificationBt"
-        android:layout_width="123dp"
-        android:layout_height="65dp"
+        android:layout_width="179dp"
+        android:layout_height="56dp"
+        android:backgroundTint="#EDC8C8"
         android:text="SAVE"
+        android:textSize="24sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/selectDateBt"
-        app:layout_constraintVertical_bias="0.324" />
+        app:layout_constraintVertical_bias="0.855" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

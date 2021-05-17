@@ -7,6 +7,14 @@
     android:padding="16dp"
     >
 
+    <ImageView
+        android:id="@+id/yourPetPic"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="40dp"
+        app:layout_constraintEnd_toStartOf="@+id/notificationsBT"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/list_name"

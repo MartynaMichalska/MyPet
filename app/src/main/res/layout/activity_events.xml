@@ -42,17 +42,24 @@
         android:id="@+id/pets_legend_txt"
         android:layout_width="match_parent"
         android:layout_height="60dp"
-        android:lineSpacingMultiplier="0.8"
         android:layout_gravity="center"
         android:layout_marginLeft="40dp"
         android:layout_marginTop="8dp"
         android:layout_marginRight="40dp"
         android:drawablePadding="8dp"
+        android:fontFamily="@font/autour_one"
         android:gravity="center_vertical"
+        android:lineSpacingMultiplier="0.8"
         android:lines="4"
         android:maxLines="4"
         android:textColor="#212121"
-        android:textSize="15sp"
+        android:textSize="15sp" />
+    <Button
+        android:layout_width="300dp"
+        android:layout_height="50dp"
+        android:layout_gravity="center"
+        android:backgroundTint="#DA8486"
+        android:text="BACK"
         android:fontFamily="@font/autour_one"
-        tools:text="ZAPLANOWANE\nPODANIE\nTEST\nTEST" />
+        android:id="@+id/backBT"/>
 </LinearLayout>

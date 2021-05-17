@@ -8,14 +8,7 @@
     android:layout_marginBottom="16dp"
     android:orientation="vertical">
 
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:drawablePadding="16dp"
-        android:gravity="center_vertical"
-        android:text="MONITOROWANIE\nTERAPII"
-        android:textColor="#212121"
-        android:textSize="15sp" />
+
 
     <View
         android:layout_width="match_parent"
@@ -60,5 +53,6 @@
         android:maxLines="4"
         android:textColor="#212121"
         android:textSize="15sp"
+        android:fontFamily="@font/autour_one"
         tools:text="ZAPLANOWANE\nPODANIE\nTEST\nTEST" />
 </LinearLayout>

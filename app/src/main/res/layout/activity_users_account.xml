@@ -8,25 +8,23 @@
 
     <Button
         android:id="@+id/showPetsButton"
-        android:layout_width="156dp"
-        android:layout_height="65dp"
-        android:layout_marginStart="154dp"
-        android:layout_marginTop="49dp"
-        android:layout_marginEnd="169dp"
+        android:layout_width="150dp"
+        android:layout_height="60dp"
+        android:layout_marginTop="60dp"
         android:fontFamily="@font/autour_one"
         android:text="MY PETS"
         app:backgroundTint="#94EDA6A6"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.397"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView" />
 
     <Button
         android:id="@+id/logoutButton"
-        android:layout_width="141dp"
-        android:layout_height="64dp"
-        android:layout_marginTop="53dp"
+        android:layout_width="150dp"
+        android:layout_height="60dp"
+        android:layout_marginTop="60dp"
         android:backgroundTint="#94EDA6A6"
+        android:fontFamily="@font/autour_one"
         android:text="SIGN OUT"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -34,10 +32,10 @@
 
     <Button
         android:id="@+id/callendarBt"
-        android:layout_width="152dp"
-        android:layout_height="64dp"
-        android:layout_marginTop="56dp"
-        android:backgroundTint="#DA8486"
+        android:layout_width="150dp"
+        android:layout_height="60dp"
+        android:layout_marginTop="60dp"
+        android:backgroundTint="#DA8686"
         android:fontFamily="@font/autour_one"
         android:text="CALLENDAR"
         app:layout_constraintEnd_toEndOf="parent"
@@ -46,9 +44,9 @@
 
     <Button
         android:id="@+id/faqBt"
-        android:layout_width="147dp"
-        android:layout_height="59dp"
-        android:layout_marginTop="63dp"
+        android:layout_width="150dp"
+        android:layout_height="60dp"
+        android:layout_marginTop="60dp"
         android:backgroundTint="#94EDA6A6"
         android:fontFamily="@font/autour_one"
         android:text="FAQ"
@@ -58,10 +56,10 @@
 
     <Button
         android:id="@+id/accountManagementBt"
-        android:layout_width="148dp"
-        android:layout_height="57dp"
-        android:layout_marginTop="49dp"
-        android:backgroundTint="#DA8486"
+        android:layout_width="150dp"
+        android:layout_height="60dp"
+        android:layout_marginTop="60dp"
+        android:backgroundTint="#DA8686"
         android:fontFamily="@font/autour_one"
         android:text="ACCOUNT MANAGMENT"
         app:layout_constraintEnd_toEndOf="parent"

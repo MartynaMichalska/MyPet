@@ -8,9 +8,10 @@
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/firestore_list"
-        android:layout_width="221dp"
-        android:layout_height="350dp"
-        android:layout_marginTop="92dp"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+
+        app:layout_constraintBottom_toTopOf="@+id/addPet"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -19,13 +20,11 @@
         android:id="@+id/addPet"
         android:layout_width="149dp"
         android:layout_height="66dp"
-        android:layout_marginTop="24dp"
-        android:layout_marginBottom="199dp"
+        android:layout_marginBottom="16dp"
         android:backgroundTint="#DA8486"
         android:fontFamily="@font/autour_one"
         android:text="ADD A NEW PET"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/firestore_list" />
+        app:layout_constraintStart_toStartOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>

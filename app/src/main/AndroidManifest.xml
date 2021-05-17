@@ -19,6 +19,7 @@
         <activity android:name=".myPets" />
         <activity android:name=".addPetFinish" />
         <activity android:name=".editPet" />
+        <activity android:name=".eventsActivity"/>
         <activity android:name=".viewPet" />
         <activity android:name=".addingPicture" />
         <activity android:name=".petInfo02" />

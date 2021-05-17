@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_marginLeft="16dp"
+    android:layout_marginRight="16dp"
+    android:layout_marginBottom="16dp"
+    android:orientation="vertical">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:drawablePadding="16dp"
+        android:gravity="center_vertical"
+        android:text="MONITOROWANIE\nTERAPII"
+        android:textColor="#212121"
+        android:textSize="15sp" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="16dp"
+        android:background="#212121" />
+
+    <com.prolificinteractive.materialcalendarview.MaterialCalendarView xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/pets_calendar_view"
+        app:mcv_firstDayOfWeek="monday"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        app:mcv_dateTextAppearance="@style/MonthDayStyle"
+        app:mcv_headerTextAppearance="@style/HeaderMonthDayStyle"
+        app:mcv_leftArrow="@drawable/ic_calendar_left"
+        app:mcv_rightArrow="@drawable/ic_calendar_right"
+        app:mcv_selectionColor="#BFBFBF"
+        app:mcv_selectionMode="single"
+        app:mcv_showOtherDates="all"
+        app:mcv_weekDayTextAppearance="@style/WeekDayStyle" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginTop="8dp"
+        android:background="#212121" />
+
+    <TextView
+        android:id="@+id/pets_legend_txt"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:lineSpacingMultiplier="0.8"
+        android:layout_gravity="center"
+        android:layout_marginLeft="40dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginRight="40dp"
+        android:drawablePadding="8dp"
+        android:gravity="center_vertical"
+        android:lines="4"
+        android:maxLines="4"
+        android:textColor="#212121"
+        android:textSize="15sp"
+        tools:text="ZAPLANOWANE\nPODANIE\nTEST\nTEST" />
+</LinearLayout>

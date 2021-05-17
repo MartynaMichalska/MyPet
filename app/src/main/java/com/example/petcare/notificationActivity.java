@@ -10,17 +10,17 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
-import android.widget.Toast;
 
 import com.example.petcare.db.Notification;
+import com.example.petcare.db.Pet;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.EventListener;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.FirebaseFirestoreException;
-import com.google.firebase.firestore.Query;
 
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
@@ -31,6 +31,7 @@ public class notificationActivity extends AppCompatActivity {
     private EditText textInput;
     private Button selectDateButton;
     private Button addBt;
+    private Pet pet;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,6 +43,7 @@ public class notificationActivity extends AppCompatActivity {
         addBt= (Button) findViewById(R.id.saveNotificationBt);
         String notificationID = getIntent().getStringExtra("notificationID");
         String petID = getIntent().getStringExtra("petID");
+        getPetName(petID);
         selectDateButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -109,10 +111,19 @@ public class notificationActivity extends AppCompatActivity {
             });
         }
     }
+    private void getPetName(String petID) {
+        firebaseFirestore.collection("pets").document(petID)
+                .addSnapshotListener(this, new EventListener<DocumentSnapshot>() {
+                    @Override
+                    public void onEvent(@Nullable DocumentSnapshot value, @Nullable FirebaseFirestoreException error) {
+                        pet = value.toObject(Pet.class);
+                    }
+                });
 
+    }
     private void updateNotification(String text, String date, String notificationID, String petID) {
         firebaseFirestore.collection("notifications").document(notificationID)
-                .set(new Notification(notificationID, petID, text,date))
+                .set(new Notification(notificationID, petID, text, date, FirebaseAuth.getInstance().getCurrentUser().getUid(), pet.getName()))
                 .addOnCompleteListener(this, new OnCompleteListener<Void>() {
                     @Override
                     public void onComplete(@NonNull Task<Void> task) {
@@ -122,7 +133,7 @@ public class notificationActivity extends AppCompatActivity {
     }
     private void addNotification(String text, String date, String petID) {
         DocumentReference doc = firebaseFirestore.collection("notifications").document();
-        doc.set(new Notification(doc.getId(), petID, text,date))
+        doc.set(new Notification(doc.getId(), petID, text, date, FirebaseAuth.getInstance().getCurrentUser().getUid(), pet.getName()))
                 .addOnCompleteListener(this, new OnCompleteListener<Void>() {
                     @Override
                     public void onComplete(@NonNull Task<Void> task) {

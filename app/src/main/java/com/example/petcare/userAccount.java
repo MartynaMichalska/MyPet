@@ -64,6 +64,8 @@ public class userAccount extends AppCompatActivity {
                             for (Notification notification : items) {
                                 Calendar calendar = Calendar.getInstance();
                                 calendar.setTime(dateFormat.parse(notification.getDate()));
+                                calendar.set(Calendar.HOUR_OF_DAY, 16);
+                                calendar.set(Calendar.MINUTE, 5);
                                 Intent serviceIntent = new Intent(getBaseContext(), NotificationService.class);
                                 PendingIntent intent = PendingIntent.getBroadcast(getBaseContext(), 101, serviceIntent, 0);
                                 manager.setExact(AlarmManager.RTC_WAKEUP, calendar.getTimeInMillis(), intent);
@@ -89,7 +91,7 @@ public class userAccount extends AppCompatActivity {
     }
     public void openActivityCallendar ()
     {
-        Intent intent = new Intent (this, callendarActivity.class);
+        Intent intent = new Intent (this, eventsActivity.class);
         startActivity(intent);
     }
 

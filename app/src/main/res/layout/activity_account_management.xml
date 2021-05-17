@@ -6,39 +6,42 @@
     android:layout_height="match_parent"
     tools:context=".accountManagement">
 
+
     <TextView
-        android:id="@+id/textView4"
+        android:id="@+id/yourEmail"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="145dp"
-        android:layout_marginTop="34dp"
-        android:layout_marginEnd="146dp"
+        android:layout_marginVertical="150dp"
+        android:ems="10"
+        android:textAlignment="center"
         android:fontFamily="@font/autour_one"
-        android:text="YOUR ACCOUNT"
+        android:inputType="textPersonName"
+        android:textSize="20dp"
+        app:layout_constraintBottom_toTopOf="@id/changePasswordBt"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
         android:id="@+id/changePasswordBt"
-        android:layout_width="179dp"
+        android:layout_width="180dp"
         android:layout_height="75dp"
         android:layout_marginStart="116dp"
-        android:layout_marginTop="133dp"
+        android:layout_marginTop="60dp"
         android:layout_marginEnd="116dp"
-        android:background="#000000"
         android:backgroundTint="#DA8486"
         android:backgroundTintMode="add"
         android:text="CHANGE PASSWORD"
+        android:fontFamily="@font/autour_one"
         android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView4" />
+        app:layout_constraintTop_toBottomOf="@+id/yourEmail" />
 
     <Button
         android:id="@+id/changeEmailBt"
-        android:layout_width="175dp"
-        android:layout_height="76dp"
+        android:layout_width="180dp"
+        android:layout_height="75dp"
         android:layout_marginStart="118dp"
         android:layout_marginTop="64dp"
         android:layout_marginEnd="118dp"
@@ -52,27 +55,16 @@
 
     <Button
         android:id="@+id/deleteAccBt"
-        android:layout_width="171dp"
-        android:layout_height="81dp"
+        android:layout_width="180dp"
+        android:layout_height="75dp"
         android:layout_marginStart="120dp"
         android:layout_marginTop="57dp"
         android:layout_marginEnd="120dp"
         android:fontFamily="@font/autour_one"
+        android:backgroundTint="#DA8486"
         android:text="DELETE ACCOUNT"
         android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/changeEmailBt" />
-
-    <TextView
-        android:id="@+id/yourEmail"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:layout_marginTop="91dp"
-        android:fontFamily="@font/autour_one"
-        android:textSize="18sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>

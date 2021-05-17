@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".callendarActivity">
+    tools:context=".petNotifications">
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerView"
@@ -21,6 +21,8 @@
         android:layout_height="60dp"
         android:layout_marginBottom="16dp"
         android:text="ADD"
+        android:backgroundTint="#DA8486"
+        android:fontFamily="@font/autour_one"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />

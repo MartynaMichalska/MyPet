@@ -1,13 +1,12 @@
 package com.example.petcare;
 
 import android.content.Intent;
-import android.net.Uri;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
-import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -15,7 +14,6 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.bumptech.glide.Glide;
 import com.example.petcare.db.Pet;
 import com.firebase.ui.firestore.FirestoreRecyclerAdapter;
 import com.firebase.ui.firestore.FirestoreRecyclerOptions;
@@ -55,6 +53,7 @@ public class myPets extends AppCompatActivity {
                 holder.list_name.setText(pet.getName());
                 holder.itemView.setOnClickListener(v -> navigateToViewPet(pet.getId()));
                 holder.notificationsButton.setOnClickListener(v -> navigateToNotifications(pet.getId()));
+                holder.itemView.setBackgroundColor(position%2==0 ? Color.parseColor("#FFDFDF"): Color.WHITE);
 
             }
 
@@ -74,7 +73,7 @@ public class myPets extends AppCompatActivity {
     }
 
     private void navigateToNotifications(String id) {
-        Intent intent = new Intent(this, callendarActivity.class);
+        Intent intent = new Intent(this, petNotifications.class);
         intent.putExtra("petID", id);
         startActivity(intent);
     }

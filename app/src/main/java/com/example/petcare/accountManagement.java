@@ -27,7 +27,7 @@ private TextView email;
         setContentView(R.layout.activity_account_management);
         FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
        innitViews();
-        email.setText(user.getEmail());
+        email.setText("Hello, "+user.getEmail()+"!");
         passwordUpdate.setOnClickListener(v -> openActivityChangePassword());
         deleteAcc.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -80,8 +80,8 @@ private TextView email;
 
     public void innitViews()
     {
-        email=(TextView) findViewById(R.id.yourEmail);
-        passwordUpdate= (Button) findViewById(R.id.changePasswordBt);
-        deleteAcc=(Button) findViewById(R.id.deleteAccBt);
+        email = (TextView) findViewById(R.id.yourEmail);
+        passwordUpdate = (Button) findViewById(R.id.changePasswordBt);
+        deleteAcc =(Button) findViewById(R.id.deleteAccBt);
     }
 }

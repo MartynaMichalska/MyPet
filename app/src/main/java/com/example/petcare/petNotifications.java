@@ -26,7 +26,7 @@ import com.google.firebase.firestore.FirebaseFirestoreException;
 import com.google.firebase.firestore.Query;
 import com.google.firebase.firestore.QuerySnapshot;
 
-public class callendarActivity extends AppCompatActivity {
+public class petNotifications extends AppCompatActivity {
     private RecyclerView mFirestoreList;
     private FirebaseFirestore firebaseFirestore;
     private FirestoreRecyclerAdapter adapter;
@@ -58,7 +58,7 @@ public class callendarActivity extends AppCompatActivity {
                 holder.text.setText(notification.getText());
                 holder.dateText.setText(notification.getDate());
                 holder.itemView.setOnClickListener(v -> navigateToEditNotification(notification.getId()));
-                holder.itemView.setBackgroundColor(position%2==0 ? Color.GRAY: Color.GREEN);
+                holder.itemView.setBackgroundColor(position%2==0 ? Color.parseColor("#FFDFDF"): Color.WHITE);
 
             }
 

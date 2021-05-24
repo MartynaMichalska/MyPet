@@ -26,10 +26,12 @@ public class NotificationService extends BroadcastReceiver {
             myNotificationManager.createNotificationChannel(notificationChannel) ;
         }
         Intent notificationIntent = new Intent(context, MainActivity.class);
-        PendingIntent contentIntent = PendingIntent.getActivity(context, 0, notificationIntent, 0);CharSequence NotificationTicket = "USB Connected!";
+        PendingIntent contentIntent = PendingIntent.getActivity(context, 0, notificationIntent, 0);
+        CharSequence NotificationTicket = "Notif";
         NotificationCompat.Builder builder = new NotificationCompat.Builder(context , "channelID" ) ;
-        builder.setContentTitle("Powiadomienie");
-        builder.setContentText("Tresc");
+        builder.setSmallIcon(R.mipmap.ic_launcher);
+        builder.setContentTitle(intent.getStringExtra("petName"));
+        builder.setContentText(intent.getStringExtra("message")+" in two days");
         builder.setContentIntent(contentIntent);
         myNotificationManager.notify(NOTIFICATION_ID, builder.build());
 

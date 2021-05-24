@@ -59,22 +59,26 @@ public class userAccount extends AppCompatActivity {
     }
 
     private void syncNotifications() {
+
         FirebaseFirestore firebaseFirestore = FirebaseFirestore.getInstance();
         firebaseFirestore.collection("notifications")
-                .whereEqualTo("ownerId", FirebaseAuth.getInstance().getCurrentUser().getUid())
+                .whereEqualTo("ownerID", FirebaseAuth.getInstance().getCurrentUser().getUid())
                 .addSnapshotListener(this, new EventListener<QuerySnapshot>() {
                     @Override
                     public void onEvent(@Nullable QuerySnapshot value, @Nullable FirebaseFirestoreException error) {
                         List<Notification> items = value.toObjects(Notification.class);
                         AlarmManager manager = (AlarmManager)(getSystemService( Context.ALARM_SERVICE ));
+
                         SimpleDateFormat dateFormat = new SimpleDateFormat("dd-MM-yyyy",new Locale("pl","PL"));
                         try {
                             for (Notification notification : items) {
                                 Calendar calendar = Calendar.getInstance();
                                 calendar.setTime(dateFormat.parse(notification.getDate()));
-                                calendar.set(Calendar.HOUR_OF_DAY, 16);
-                                calendar.set(Calendar.MINUTE, 5);
+                                calendar.set(Calendar.HOUR_OF_DAY, 23);
+                                calendar.set(Calendar.MINUTE, 22);
                                 Intent serviceIntent = new Intent(getBaseContext(), NotificationService.class);
+                                serviceIntent.putExtra("petName",notification.getPetName());
+                                serviceIntent.putExtra("message",notification.getText());
                                 PendingIntent intent = PendingIntent.getBroadcast(getBaseContext(), 101, serviceIntent, 0);
                                 manager.setExact(AlarmManager.RTC_WAKEUP, calendar.getTimeInMillis(), intent);
                             }

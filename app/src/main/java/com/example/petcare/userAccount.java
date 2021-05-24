@@ -30,6 +30,7 @@ import java.util.Locale;
 
 public class userAccount extends AppCompatActivity {
     private Button accountMngBt;
+    private Button faqBt;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -40,14 +41,21 @@ public class userAccount extends AppCompatActivity {
         showPets.setOnClickListener(v -> openActivityMyPets());
         Button signOut = findViewById(R.id.logoutButton);
         Button callendar =(Button) findViewById(R.id.callendarBt);
+        faqBt=(Button) findViewById(R.id.faqBt);
         callendar.setOnClickListener(v -> openActivityCallendar());
         accountMngBt=(Button) findViewById(R.id.accountManagementBt) ;
         accountMngBt.setOnClickListener(v -> openActivityAccountMng());
+        faqBt.setOnClickListener(v -> openActivityFaq());
 
         signOut.setOnClickListener(v -> {
             FirebaseAuth.getInstance().signOut();
             finish();
         });
+    }
+
+    private void openActivityFaq() {
+        Intent intent = new Intent(this, faqChoice.class);
+        startActivity(intent);
     }
 
     private void syncNotifications() {

@@ -1,7 +1,8 @@
 package com.example.petcare;
 
+import android.annotation.SuppressLint;
+import android.app.Activity;
 import android.content.Intent;
-import android.net.Uri;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -11,6 +12,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -20,14 +22,25 @@ import com.example.petcare.db.Pet;
 import com.firebase.ui.firestore.FirestoreRecyclerAdapter;
 import com.firebase.ui.firestore.FirestoreRecyclerOptions;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.firestore.DocumentSnapshot;
+import com.google.firebase.firestore.EventListener;
 import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.FirebaseFirestoreException;
 import com.google.firebase.firestore.Query;
+import com.google.firebase.storage.FirebaseStorage;
+import com.google.firebase.storage.StorageReference;
 
 public class myPets extends AppCompatActivity {
     private RecyclerView mFirestoreList;
     private FirebaseFirestore firebaseFirestore;
     private FirestoreRecyclerAdapter adapter;
     private Button addingPet;
+    private String petID;
+    private String imageUrl;
+    public final static String Arg_PetID = "Arg_PetID";
+    private FirebaseStorage storage;
+    private StorageReference storageReference;
+    private ImageView yourP;
 
 
     @Override
@@ -38,6 +51,12 @@ public class myPets extends AppCompatActivity {
         firebaseFirestore = FirebaseFirestore.getInstance();
         mFirestoreList = findViewById(R.id.firestore_list);
         addingPet= (Button) findViewById(R.id.addPet);
+        yourP=(ImageView) findViewById(R.id.smallPetPic);
+        petID = getIntent().getStringExtra(Arg_PetID);
+        storage = FirebaseStorage.getInstance();
+        firebaseFirestore = FirebaseFirestore.getInstance();
+        storageReference = storage.getReference();
+
 
         Query query = firebaseFirestore.collection("pets").whereEqualTo("ownerId", FirebaseAuth.getInstance().getCurrentUser().getUid());
         FirestoreRecyclerOptions<Pet> options = new FirestoreRecyclerOptions.Builder<Pet>()
@@ -92,10 +111,13 @@ public class myPets extends AppCompatActivity {
         private final Button notificationsButton;
 
 
+
+
         public PetViewHolder(@NonNull View itemView) {
             super(itemView);
             list_name = itemView.findViewById(R.id.list_name);
             notificationsButton=(Button) itemView.findViewById(R.id.notificationsBT);
+
         }
     }
 
@@ -115,4 +137,9 @@ public class myPets extends AppCompatActivity {
         Intent intent = new Intent (this, chooseType.class);
         startActivity(intent);
     }
+
+
+
+
+
 }

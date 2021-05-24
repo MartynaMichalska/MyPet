@@ -10,16 +10,26 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.PetCare">
-        <receiver android:name=".NotificationService"  android:exported="true">
-        </receiver>
-        <activity android:name=".notificationActivity"></activity>
+        <activity android:name=".faqCatOther"></activity>
+        <activity android:name=".faqCatSocial" />
+        <activity android:name=".faqCatTricks" />
+        <activity android:name=".faqCatFeeding" />
+        <activity android:name=".faqDogsMain" />
+        <activity android:name=".faqCatsMain" />
+        <activity android:name=".faqChoice" />
+
+        <receiver
+            android:name=".NotificationService"
+            android:exported="true" />
+
+        <activity android:name=".notificationActivity" />
         <activity android:name=".petNotifications" />
         <activity android:name=".passwordUpdate" />
         <activity android:name=".accountManagement" />
         <activity android:name=".myPets" />
         <activity android:name=".addPetFinish" />
         <activity android:name=".editPet" />
-        <activity android:name=".eventsActivity"/>
+        <activity android:name=".eventsActivity" />
         <activity android:name=".viewPet" />
         <activity android:name=".addingPicture" />
         <activity android:name=".petInfo02" />

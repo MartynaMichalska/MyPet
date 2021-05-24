@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:padding="8dp">
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Pick race you're interested in:"
+        android:textSize="18dp"
+        android:fontFamily="@font/autour_one"
+        android:layout_marginTop="10dp"/>
+
+    <Button
+        android:id="@+id/chooseDogFAQ"
+        android:layout_height="60dp"
+        android:layout_width="900px"
+        android:layout_gravity="center"
+        android:text="DOGS"
+        android:fontFamily="@font/autour_one"
+        android:backgroundTint="@color/light_blue_600"
+        android:layout_marginTop="50dp"
+    />
+    <Button
+        android:id="@+id/chooseCatFAQ"
+        android:layout_height="60dp"
+        android:layout_width="900px"
+        android:layout_gravity="center"
+        android:text="CATS"
+        android:fontFamily="@font/autour_one"
+        android:backgroundTint="#DA8486"
+        android:layout_marginTop="50dp"
+        />
+</LinearLayout>
+</androidx.core.widget.NestedScrollView>

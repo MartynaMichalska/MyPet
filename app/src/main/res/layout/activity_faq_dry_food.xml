@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="8dp">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="50dp"
+            android:background="#F3E2E2"
+            android:fontFamily="sans-serif-smallcaps"
+            android:gravity="center"
+            android:text="Why is dry food bad for your cat?"
+            android:textSize="25sp" />
+
+
+        <ImageView
+            android:layout_width="450dp"
+            android:layout_height="231dp"
+            app:srcCompat="@drawable/first"
+            android:layout_gravity="center"
+            android:layout_marginTop="50dp"/>
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="50dp"
+            android:background="#F3E5E5"
+            android:fontFamily="sans-serif-light"
+            android:gravity="center"
+            android:text="Dry cat foods typically contain more carbohydrates than wet food because many dry foods use grains, such as cornmeal and rice, to process the kibble."
+            android:textSize="20sp" />
+
+        <ImageView
+            android:layout_width="427dp"
+            android:layout_height="203dp"
+            app:srcCompat="@drawable/_"
+            android:layout_marginTop="50dp"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="50dp"
+            android:background="#F1D6D6"
+            android:fontFamily="sans-serif-light"
+            android:gravity="center"
+            android:text="When shopping for cat food, read the ingredients list and try to minimize ingredients stemming from corn, rice, beans, peas or potatoes."
+            android:textSize="20sp" />
+
+        <ImageView
+            android:layout_width="427dp"
+            android:layout_height="203dp"
+            app:srcCompat="@drawable/dorothea_oldani_c01opadbxww_unsplash"
+            android:layout_marginTop="50dp"
+            android:layout_gravity="center"/>
+
+
+        <TextView
+            style="@android:style/Widget.TextView.PopupMenu"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="50dp"
+            android:fontFamily="sans-serif-medium"
+            android:gravity="center"
+            android:text="Naturally, wet food contains a lot more water content than dry food. Extra moisture promotes kidney, bladder, andurinary tract health for your cats. "
+            android:textSize="20sp" />
+        <Button
+            android:layout_width="400dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30dp"
+            android:backgroundTint="#DA8486"
+            android:text="FINISH READING"
+            android:layout_gravity="center"
+            android:textSize="20dp"
+            android:id="@+id/backToMainFaq"/>
+
+
+    </LinearLayout>
+</androidx.core.widget.NestedScrollView>

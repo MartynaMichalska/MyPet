@@ -20,6 +20,7 @@ import com.google.firebase.auth.FirebaseUser;
 public class accountManagement extends AppCompatActivity {
 private Button passwordUpdate;
 private Button deleteAcc;
+private Button emailUpdate;
 private TextView email;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,6 +30,7 @@ private TextView email;
        innitViews();
         email.setText("Hello, "+user.getEmail()+"!");
         passwordUpdate.setOnClickListener(v -> openActivityChangePassword());
+        emailUpdate.setOnClickListener(v -> openActivityChangeEmail());
         deleteAcc.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -76,6 +78,11 @@ private TextView email;
         Intent intent = new Intent (this, passwordUpdate.class);
         startActivity(intent);
     }
+    public void openActivityChangeEmail ()
+    {
+        Intent intent = new Intent (this, emailUpdate.class);
+        startActivity(intent);
+    }
 
 
     public void innitViews()
@@ -83,5 +90,6 @@ private TextView email;
         email = (TextView) findViewById(R.id.yourEmail);
         passwordUpdate = (Button) findViewById(R.id.changePasswordBt);
         deleteAcc =(Button) findViewById(R.id.deleteAccBt);
+        emailUpdate = (Button) findViewById(R.id.changeEmailBt);
     }
 }

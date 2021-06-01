@@ -1,9 +1,107 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".faqCatSocial">
+    android:layout_height="match_parent">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="8dp">
+        <TextView
+            android:layout_width="400dp"
+            android:layout_height="70dp"
+            android:text="Adding a second cat into your houseohold?"
+            android:layout_gravity="center"
+            android:textSize="20dp"
+            android:fontFamily="sans-serif-medium"
+            android:layout_marginTop="40dp"
+            android:background="#DA8486"
+            android:gravity="center"
+/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Make sure you do it properly!"
+            android:layout_marginTop="20dp"
+            android:layout_gravity="center"
+            android:textSize="16dp"
+            android:fontFamily="sans-serif-light"
+            />
+
+        <ImageView
+            android:layout_width="400dp"
+            android:layout_height="300dp"
+            android:layout_gravity="center"
+            android:layout_marginTop="60dp"
+            app:srcCompat="@drawable/closeup_shot_one_ginger_cat_hugging_licking_other_isolated_white_wall" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Cats are highly territorial creatures that often require weeks or months to adjust to changes in their environment and lifestyle. For that reason, first impressions are extremely important when meeting other household pets. "
+            android:textSize="18dp"
+            android:layout_marginTop="30dp"
+            android:gravity="center"
+            android:fontFamily="sans-serif-medium"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="15dp"
+            android:background="#E3ABAC"
+            android:fontFamily="sans-serif-light"
+            android:gravity="center"
+            android:text="Cats that are introduced too quickly and fight may never learn to coexist peacefully!"
+            android:textSize="20dp" />
+
+
+        <ImageView
+            android:layout_width="400dp"
+            android:layout_height="300dp"
+            app:srcCompat="@drawable/social1"
+            android:layout_gravity="center"/>
+
+        <ImageView
+            android:layout_width="400dp"
+            android:layout_height="300dp"
+            android:layout_gravity="center"
+            app:srcCompat="@drawable/social2" />
+
+        <ImageView
+            android:layout_width="400dp"
+            android:layout_height="300dp"
+            android:layout_gravity="center"
+            app:srcCompat="@drawable/social33" />
+
+        <ImageView
+            android:layout_width="400dp"
+            android:layout_height="300dp"
+            android:layout_gravity="center"
+            app:srcCompat="@drawable/social4" />
+
+        <ImageView
+            android:layout_width="400dp"
+            android:layout_height="300dp"
+            android:layout_gravity="center"
+            app:srcCompat="@drawable/social5" />
+
+        <ImageView
+            android:layout_width="400dp"
+            android:layout_height="300dp"
+            android:layout_gravity="center"
+            app:srcCompat="@drawable/social66" />
+        <Button
+            android:layout_width="400dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30dp"
+            android:backgroundTint="#DA8486"
+            android:text="FINISH READING"
+            android:layout_gravity="center"
+            android:textSize="20dp"
+            android:id="@+id/backToMainFaqq"/>
+
+    </LinearLayout>
+</androidx.core.widget.NestedScrollView>

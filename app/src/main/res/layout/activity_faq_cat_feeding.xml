@@ -2,6 +2,7 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/transition"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".faqCatFeeding">
@@ -19,7 +20,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <ImageView
-        android:id="@+id/imageView"
+        android:id="@+id/dryFood"
         android:layout_width="54dp"
         android:layout_height="41dp"
         android:layout_marginStart="308dp"
@@ -37,14 +38,14 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="21dp"
         android:fontFamily="@font/autour_one"
-        android:text="2.	Find out how to feed your cat properly"
+        android:text="2.	Find out how to transition to a new type of food"
         android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView" />
+        app:layout_constraintTop_toBottomOf="@+id/dryFood" />
 
     <ImageView
-        android:id="@+id/imageView32"
+        android:id="@+id/transitionCat"
         android:layout_width="54dp"
         android:layout_height="41dp"
         android:layout_marginStart="308dp"
@@ -55,4 +56,16 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView11"
         app:srcCompat="@drawable/ic_calendar_left" />
+
+    <Button
+        android:id="@+id/backToMainFaqqq"
+        android:layout_width="242dp"
+        android:layout_height="46dp"
+        android:backgroundTint="#DA8486"
+        android:fontFamily="@font/autour_one"
+        android:text="BACK"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/transitionCat"
+        android:layout_marginTop="50dp"/>
 </androidx.constraintlayout.widget.ConstraintLayout>

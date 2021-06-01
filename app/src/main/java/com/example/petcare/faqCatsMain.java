@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.widget.Button;
 import android.widget.ImageView;
 
 public class faqCatsMain extends AppCompatActivity {
@@ -11,6 +12,7 @@ private  ImageView feed;
 private  ImageView tricks;
 private  ImageView social;
 private  ImageView other;
+private Button bt;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -20,7 +22,13 @@ private  ImageView other;
         tricks.setOnClickListener(v -> openActivityTricks());
         social.setOnClickListener(v -> openActivitySocial());
         other.setOnClickListener(v -> openActivityOther());
+        bt.setOnClickListener(v -> openActivityMainFaq());
 
+    }
+
+    private void openActivityMainFaq() {
+        Intent intent = new Intent(this, faqChoice.class);
+        startActivity(intent);
     }
 
     private void openActivityFeed() {
@@ -48,6 +56,7 @@ private  ImageView other;
         tricks= (ImageView) findViewById(R.id.catFaqTricks);
         social= (ImageView) findViewById(R.id.catFaqSocial);
         other= (ImageView) findViewById(R.id.catFaqOther);
+        bt=(Button) findViewById(R.id.backToMainMainFaq);
 
     }
 }

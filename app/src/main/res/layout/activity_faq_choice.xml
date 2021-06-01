@@ -36,5 +36,16 @@
         android:backgroundTint="#DA8486"
         android:layout_marginTop="50dp"
         />
+    <Button
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="350dp"
+        android:layout_gravity="center"
+        android:text="BACK"
+        android:fontFamily="@font/autour_one"
+        android:backgroundTint="#DA8486"
+        android:textSize="20dp"
+        android:id="@+id/backChoice"/>
+
 </LinearLayout>
 </androidx.core.widget.NestedScrollView>

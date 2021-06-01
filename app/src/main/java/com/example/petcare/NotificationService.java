@@ -12,6 +12,8 @@ import android.os.Build;
 import androidx.annotation.RequiresApi;
 import androidx.core.app.NotificationCompat;
 
+import java.util.Random;
+
 
 public class NotificationService extends BroadcastReceiver {
     public NotificationManager myNotificationManager;
@@ -26,14 +28,14 @@ public class NotificationService extends BroadcastReceiver {
             myNotificationManager.createNotificationChannel(notificationChannel) ;
         }
         Intent notificationIntent = new Intent(context, MainActivity.class);
-        PendingIntent contentIntent = PendingIntent.getActivity(context, 0, notificationIntent, 0);
+        PendingIntent contentIntent = PendingIntent.getActivity(context, 0, notificationIntent, PendingIntent.FLAG_CANCEL_CURRENT);
         CharSequence NotificationTicket = "Notif";
         NotificationCompat.Builder builder = new NotificationCompat.Builder(context , "channelID" ) ;
         builder.setSmallIcon(R.mipmap.ic_launcher);
         builder.setContentTitle(intent.getStringExtra("petName"));
-        builder.setContentText(intent.getStringExtra("message")+" in two days");
+        builder.setContentText(intent.getStringExtra("message"));
         builder.setContentIntent(contentIntent);
-        myNotificationManager.notify(NOTIFICATION_ID, builder.build());
+        myNotificationManager.notify(new Random().nextInt(), builder.build());
 
     }
 }

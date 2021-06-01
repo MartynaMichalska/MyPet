@@ -26,6 +26,7 @@ import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.List;
 import java.util.Locale;
+import java.util.Random;
 
 
 public class userAccount extends AppCompatActivity {
@@ -71,16 +72,21 @@ public class userAccount extends AppCompatActivity {
 
                         SimpleDateFormat dateFormat = new SimpleDateFormat("dd-MM-yyyy",new Locale("pl","PL"));
                         try {
+                            long time = 0;
                             for (Notification notification : items) {
                                 Calendar calendar = Calendar.getInstance();
                                 calendar.setTime(dateFormat.parse(notification.getDate()));
-                                calendar.set(Calendar.HOUR_OF_DAY, 23);
-                                calendar.set(Calendar.MINUTE, 22);
-                                Intent serviceIntent = new Intent(getBaseContext(), NotificationService.class);
-                                serviceIntent.putExtra("petName",notification.getPetName());
-                                serviceIntent.putExtra("message",notification.getText());
-                                PendingIntent intent = PendingIntent.getBroadcast(getBaseContext(), 101, serviceIntent, 0);
-                                manager.setExact(AlarmManager.RTC_WAKEUP, calendar.getTimeInMillis(), intent);
+                                calendar.set(Calendar.HOUR_OF_DAY, 17);
+                                calendar.set(Calendar.MINUTE, 16);
+
+                                if(calendar.getTimeInMillis() >= System.currentTimeMillis()) {
+                                    time += 10000;
+                                    Intent serviceIntent = new Intent(getBaseContext(), NotificationService.class);
+                                    serviceIntent.putExtra("petName", notification.getPetName());
+                                    serviceIntent.putExtra("message", notification.getText());
+                                    PendingIntent intent = PendingIntent.getBroadcast(getBaseContext(), new Random().nextInt(), serviceIntent, 0);
+                                    manager.setExact(AlarmManager.RTC_WAKEUP, calendar.getTimeInMillis()+time, intent);
+                                }
                             }
                         }
                         catch(Throwable e){

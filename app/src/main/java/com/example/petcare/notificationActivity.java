@@ -43,7 +43,10 @@ public class notificationActivity extends AppCompatActivity {
         addBt= (Button) findViewById(R.id.saveNotificationBt);
         String notificationID = getIntent().getStringExtra("notificationID");
         String petID = getIntent().getStringExtra("petID");
-        getPetName(petID);
+        if (petID != null){
+            getPetName(petID);
+        }
+
         selectDateButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -111,6 +114,23 @@ public class notificationActivity extends AppCompatActivity {
             });
         }
     }
+
+    private void getNotificationDetails(String notificationID) {
+        firebaseFirestore.collection("notifications").document(notificationID)
+                .get().addOnCompleteListener(this, new OnCompleteListener<DocumentSnapshot>() {
+            @Override
+            public void onComplete(@NonNull Task<DocumentSnapshot> task) {
+                Notification notification = task.getResult().toObject(Notification.class);
+                fillUI(notification);
+            }
+        });
+    }
+
+    private void fillUI(Notification notification) {
+        textInput.setText(notification.getText());
+        selectDateButton.setText(notification.getDate());
+    }
+
     private void getPetName(String petID) {
         firebaseFirestore.collection("pets").document(petID)
                 .addSnapshotListener(this, new EventListener<DocumentSnapshot>() {

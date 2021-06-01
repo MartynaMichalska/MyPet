@@ -19,7 +19,7 @@ public class petInfo02 extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_pet_info02);
-        button= (Button) findViewById(R.id.petInfo02Next);
+        button = (Button) findViewById(R.id.petInfo02Next);
         ifSterilised = (Spinner) findViewById(R.id.spinner1);
         ifMeds = (Spinner) findViewById(R.id.spinner2);
         medsHowOften = (Spinner) findViewById(R.id.spinner3);

@@ -38,9 +38,9 @@ public class notificationActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_notification);
         firebaseFirestore = FirebaseFirestore.getInstance();
-        textInput=(EditText) findViewById(R.id.addingTextNotification);
-        selectDateButton=(Button) findViewById(R.id.selectDateBt);
-        addBt= (Button) findViewById(R.id.saveNotificationBt);
+        textInput =(EditText) findViewById(R.id.addingTextNotification);
+        selectDateButton =(Button) findViewById(R.id.selectDateBt);
+        addBt = (Button) findViewById(R.id.saveNotificationBt);
         String notificationID = getIntent().getStringExtra("notificationID");
         String petID = getIntent().getStringExtra("petID");
         if (petID != null){
@@ -66,13 +66,13 @@ public class notificationActivity extends AppCompatActivity {
 
             }
         });
-        if(notificationID==null)
+        if(notificationID == null)
         {
             addBt.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    String text =textInput.getText().toString();
-                    String date =selectDateButton.getText().toString();
+                    String text = textInput.getText().toString();
+                    String date = selectDateButton.getText().toString();
                     if(text.length()>0 && date.length()>0 )
                     {
                         addNotification(textInput.getText().toString(), selectDateButton.getText().toString(), petID);
@@ -97,11 +97,11 @@ public class notificationActivity extends AppCompatActivity {
                     addBt.setOnClickListener(new View.OnClickListener() {
                         @Override
                         public void onClick(View v) {
-                            String text =textInput.getText().toString();
-                            String date =selectDateButton.getText().toString();
+                            String text = textInput.getText().toString();
+                            String date = selectDateButton.getText().toString();
                             if(text.length()>0 && date.length()>0 )
                             {
-                                updateNotification(textInput.getText().toString(), selectDateButton.getText().toString(), notification.getId(), notification.getPetID());
+                                updateNotification(text, date, notification.getId(), notification.getPetID());
                             }
                             else
                             {
@@ -143,7 +143,13 @@ public class notificationActivity extends AppCompatActivity {
     }
     private void updateNotification(String text, String date, String notificationID, String petID) {
         firebaseFirestore.collection("notifications").document(notificationID)
-                .set(new Notification(notificationID, petID, text, date, FirebaseAuth.getInstance().getCurrentUser().getUid(), pet.getName()))
+                .set(new Notification(
+                        notificationID,
+                        petID,
+                        text,
+                        date,
+                        FirebaseAuth.getInstance().getCurrentUser().getUid(),
+                        pet.getName()))
                 .addOnCompleteListener(this, new OnCompleteListener<Void>() {
                     @Override
                     public void onComplete(@NonNull Task<Void> task) {
@@ -153,7 +159,13 @@ public class notificationActivity extends AppCompatActivity {
     }
     private void addNotification(String text, String date, String petID) {
         DocumentReference doc = firebaseFirestore.collection("notifications").document();
-        doc.set(new Notification(doc.getId(), petID, text, date, FirebaseAuth.getInstance().getCurrentUser().getUid(), pet.getName()))
+        doc.set(new Notification(
+                    doc.getId(),
+                    petID,
+                    text,
+                    date,
+                    FirebaseAuth.getInstance().getCurrentUser().getUid(),
+                    pet.getName()))
                 .addOnCompleteListener(this, new OnCompleteListener<Void>() {
                     @Override
                     public void onComplete(@NonNull Task<Void> task) {

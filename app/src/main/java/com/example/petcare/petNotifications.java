@@ -26,6 +26,8 @@ import com.google.firebase.firestore.FirebaseFirestoreException;
 import com.google.firebase.firestore.Query;
 import com.google.firebase.firestore.QuerySnapshot;
 
+import java.text.BreakIterator;
+
 public class petNotifications extends AppCompatActivity {
     private RecyclerView mFirestoreList;
     private FirebaseFirestore firebaseFirestore;
@@ -38,7 +40,7 @@ public class petNotifications extends AppCompatActivity {
         setContentView(R.layout.activity_callendar);
         firebaseFirestore = FirebaseFirestore.getInstance();
         mFirestoreList = findViewById(R.id.recyclerView);
-        callendarBt= (Button) findViewById(R.id.callendarAddBt);
+        callendarBt = (Button) findViewById(R.id.callendarAddBt);
         final String petID = getIntent().getStringExtra("petID");
 
         Query query = firebaseFirestore.collection("notifications").whereEqualTo("petID", petID);
@@ -88,7 +90,7 @@ public class petNotifications extends AppCompatActivity {
         startActivity(intent);
     }
 
-    private static class ViewHolder extends RecyclerView.ViewHolder{
+    static class ViewHolder extends RecyclerView.ViewHolder{
         private final TextView text;
         private final TextView dateText;
 

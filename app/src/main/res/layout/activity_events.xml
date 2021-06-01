@@ -40,9 +40,10 @@
         android:background="#212121" />
 
     <TextView
-        android:id="@+id/pets_legend_txt"
-        android:layout_width="299dp"
-        android:layout_height="162dp"
+        android:scrollbars = "vertical"
+        android:id="@+id/pets_legend"
+        android:layout_width="314dp"
+        android:layout_height="229dp"
         android:layout_gravity="center"
         android:layout_marginLeft="40dp"
         android:layout_marginTop="8dp"
@@ -51,10 +52,9 @@
         android:fontFamily="@font/autour_one"
         android:gravity="center_vertical"
         android:lineSpacingMultiplier="0.8"
-        android:lines="4"
-        android:maxLines="4"
+
         android:textColor="#212121"
-        android:textSize="15sp" />
+        android:textSize="14sp" />
     <Button
         android:layout_width="300dp"
         android:layout_height="50dp"

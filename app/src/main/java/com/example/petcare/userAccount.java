@@ -76,8 +76,8 @@ public class userAccount extends AppCompatActivity {
                             for (Notification notification : items) {
                                 Calendar calendar = Calendar.getInstance();
                                 calendar.setTime(dateFormat.parse(notification.getDate()));
-                                calendar.set(Calendar.HOUR_OF_DAY, 17);
-                                calendar.set(Calendar.MINUTE, 16);
+                                calendar.set(Calendar.HOUR_OF_DAY, 13);
+                                calendar.set(Calendar.MINUTE, 35);
 
                                 if(calendar.getTimeInMillis() >= System.currentTimeMillis()) {
                                     time += 10000;

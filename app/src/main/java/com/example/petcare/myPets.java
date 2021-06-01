@@ -50,8 +50,8 @@ public class myPets extends AppCompatActivity {
 
         firebaseFirestore = FirebaseFirestore.getInstance();
         mFirestoreList = findViewById(R.id.firestore_list);
-        addingPet= (Button) findViewById(R.id.addPet);
-        yourP=(ImageView) findViewById(R.id.smallPetPic);
+        addingPet = (Button) findViewById(R.id.addPet);
+        yourP = (ImageView) findViewById(R.id.smallPetPic);
         petID = getIntent().getStringExtra(Arg_PetID);
         storage = FirebaseStorage.getInstance();
         firebaseFirestore = FirebaseFirestore.getInstance();

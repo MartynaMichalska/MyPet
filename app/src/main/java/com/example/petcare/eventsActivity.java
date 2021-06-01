@@ -3,6 +3,7 @@ package com.example.petcare;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
+import android.text.method.ScrollingMovementMethod;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -45,7 +46,7 @@ public class eventsActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_events);
-        petsLegend = findViewById(R.id.pets_legend_txt);
+        petsLegend = findViewById(R.id.pets_legend);
         firebaseFirestore = FirebaseFirestore.getInstance();
         petsCalendar = findViewById(R.id.pets_calendar_view);
         backBT= (Button) findViewById(R.id.backBT) ;
@@ -55,6 +56,7 @@ public class eventsActivity extends AppCompatActivity {
                 openMainActivity();
             }
         });
+        petsLegend.setMovementMethod(new ScrollingMovementMethod());
 
         Query query = firebaseFirestore.collection("notifications")
                 .whereEqualTo("ownerID", FirebaseAuth.getInstance().getCurrentUser().getUid());

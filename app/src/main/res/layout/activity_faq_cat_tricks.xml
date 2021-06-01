@@ -1,9 +1,77 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".faqCatTricks">
+    android:layout_height="match_parent">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="8dp">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="24dp"
+            android:fontFamily="sans-serif-smallcaps"
+            android:background="#F3E2E2"
+            android:text="Cat learning tricks. Is it possible?"
+            android:gravity="center"
+            android:layout_marginTop="30dp"
+            android:layout_gravity="center"/>
+
+        <ImageView
+            android:layout_width="400dp"
+            android:layout_height="300dp"
+            android:layout_gravity="center"
+            android:layout_marginTop="60dp"
+            app:srcCompat="@drawable/tricks2" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="22dp"
+            android:fontFamily="sans-serif-smallcaps"
+            android:background="#F3E2E2"
+            android:layout_gravity="center"
+            android:layout_marginTop="30dp"
+            android:text="Click and treat"/>
+
+        <ImageView
+            android:layout_width="400dp"
+            android:layout_height="300dp"
+            android:layout_gravity="center"
+            android:layout_marginTop="10dp"
+            app:srcCompat="@drawable/tricks3" />
+
+        <ImageView
+            android:layout_width="400dp"
+            android:layout_height="300dp"
+            android:layout_gravity="center"
+            android:layout_marginTop="0dp"
+            app:srcCompat="@drawable/tricks4" />
+        <ImageView
+        android:layout_width="800dp"
+        android:layout_height="600dp"
+        android:layout_gravity="center"
+        android:layout_marginTop="0dp"
+        app:srcCompat="@drawable/tricks5" />
+
+        <ImageView
+            android:layout_width="450dp"
+            android:layout_height="350dp"
+            android:layout_gravity="center"
+            android:layout_marginTop="40dp"
+            app:srcCompat="@drawable/tricks6" />
+        <Button
+            android:layout_width="400dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30dp"
+            android:backgroundTint="#DA8486"
+            android:text="FINISH READING"
+            android:layout_gravity="center"
+            android:textSize="20dp"
+            android:id="@+id/backToMainFaq3"/>
+
+
+    </LinearLayout>
+</androidx.core.widget.NestedScrollView>

@@ -10,7 +10,11 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.PetCare">
-        <activity android:name=".catsFaqTransition"></activity>
+        <activity
+            android:name=".emailUpdate"
+            android:label="@string/title_activity_email_update"
+            android:theme="@style/Theme.PetCare.NoActionBar"></activity>
+        <activity android:name=".catsFaqTransition" />
         <activity android:name=".faqDryFood" />
         <activity android:name=".faqCatOther" />
         <activity android:name=".faqCatSocial" />

@@ -48,11 +48,11 @@ if(newPass.getText().toString().equals(newPassRpt.getText().toString()))
                             user.updatePassword(String.valueOf(newPass.getText())).addOnCompleteListener(new OnCompleteListener<Void>() {
                                 @Override
                                 public void onComplete(@NonNull Task<Void> task) {
-                                    if (task.isSuccessful()) {
+                                    if (task.isSuccessful() && dataValidation(newPass.getText().toString())) {
                                         Toast.makeText(getApplicationContext(),"Password updated", Toast.LENGTH_LONG).show();
                                         openActivityuserAcc();
                                     } else {
-                                        Toast.makeText(getApplicationContext(),"Password not updated", Toast.LENGTH_LONG).show();
+                                        Toast.makeText(getApplicationContext(),"New password must be at least 7 characters long", Toast.LENGTH_LONG).show();
                                         openActivityuserAcc();
                                     }
                                 }
@@ -74,6 +74,12 @@ else
 });
 
     }
+
+    private boolean dataValidation(String pas) {
+        return pas.length() >= 7;
+
+    }
+
     public void openActivityuserAcc ()
     {
         Intent intent = new Intent (this, userAccount.class);

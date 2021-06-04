@@ -35,6 +35,9 @@ public class NotificationService extends BroadcastReceiver {
         builder.setContentTitle(intent.getStringExtra("petName"));
         builder.setContentText(intent.getStringExtra("message"));
         builder.setContentIntent(contentIntent);
+
+
+
         myNotificationManager.notify(new Random().nextInt(), builder.build());
 
     }

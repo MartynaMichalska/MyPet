@@ -78,9 +78,7 @@ public class viewPet extends AppCompatActivity {
                 }
             }
         });
-
         editPet_btn.setOnClickListener(v -> openActivityEditPet(petID));
-
     }
 
     private void innitViews() {

@@ -5,14 +5,16 @@ public class Notification {
     private final String petID;
     private final String text;
     private final String date;
+    private final String time;
     private final String ownerID;
     private final String petName;
 
-    public Notification(String id, String petID, String text, String date, String ownerID, String petName) {
+    public Notification(String id, String petID, String text, String date, String time, String ownerID, String petName) {
         this.id = id;
         this.petID = petID;
         this.text = text;
         this.date = date;
+        this.time = time;
         this.ownerID = ownerID;
         this.petName = petName;
     }
@@ -20,6 +22,7 @@ public class Notification {
 
 
     public Notification() {
+        this.time = null;
         this.petName = null;
         this.ownerID = null;
         this.id = null;
@@ -37,16 +40,16 @@ public class Notification {
     public String getId() {
         return id;
     }
-
     public String getPetID() {
         return petID;
     }
-
     public String getText() {
         return text;
     }
-
     public String getDate() {
         return date;
     }
+    public String getTime() { return time; }
+
+
 }

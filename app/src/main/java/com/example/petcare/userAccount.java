@@ -15,6 +15,7 @@ import android.view.View;
 import android.widget.Button;
 
 import com.example.petcare.db.Notification;
+import com.google.android.material.timepicker.TimeFormat;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.EventListener;
 import com.google.firebase.firestore.FirebaseFirestore;
@@ -22,8 +23,10 @@ import com.google.firebase.firestore.FirebaseFirestoreException;
 import com.google.firebase.firestore.Query;
 import com.google.firebase.firestore.QuerySnapshot;
 
+import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
+import java.util.Date;
 import java.util.List;
 import java.util.Locale;
 import java.util.Random;
@@ -41,10 +44,10 @@ public class userAccount extends AppCompatActivity {
         Button showPets = (Button) findViewById(R.id.showPetsButton);
         showPets.setOnClickListener(v -> openActivityMyPets());
         Button signOut = findViewById(R.id.logoutButton);
-        Button callendar =(Button) findViewById(R.id.callendarBt);
-        faqBt=(Button) findViewById(R.id.faqBt);
+        Button callendar = (Button) findViewById(R.id.callendarBt);
+        faqBt = (Button) findViewById(R.id.faqBt);
         callendar.setOnClickListener(v -> openActivityCallendar());
-        accountMngBt=(Button) findViewById(R.id.accountManagementBt) ;
+        accountMngBt = (Button) findViewById(R.id.accountManagementBt) ;
         accountMngBt.setOnClickListener(v -> openActivityAccountMng());
         faqBt.setOnClickListener(v -> openActivityFaq());
 
@@ -71,14 +74,22 @@ public class userAccount extends AppCompatActivity {
                         AlarmManager manager = (AlarmManager)(getSystemService( Context.ALARM_SERVICE ));
 
                         SimpleDateFormat dateFormat = new SimpleDateFormat("dd-MM-yyyy",new Locale("pl","PL"));
+                        //SimpleDateFormat timeFormat = new SimpleDateFormat("HH:mm");
+
+
+
+
+
                         try {
                             long time = 0;
                             for (Notification notification : items) {
                                 Calendar calendar = Calendar.getInstance();
                                 calendar.setTime(dateFormat.parse(notification.getDate()));
-                                calendar.set(Calendar.HOUR_OF_DAY, 13);
-                                calendar.set(Calendar.MINUTE, 35);
-
+                                String[] timeFormatParser = notification.getTime().split( ":" );
+                                int hour = Integer.parseInt ( timeFormatParser[0].trim() );
+                                int min = Integer.parseInt ( timeFormatParser[1].trim() );
+                                calendar.set(Calendar.HOUR_OF_DAY, hour);
+                                calendar.set(Calendar.MINUTE, min);
                                 if(calendar.getTimeInMillis() >= System.currentTimeMillis()) {
                                     time += 10000;
                                     Intent serviceIntent = new Intent(getBaseContext(), NotificationService.class);
@@ -86,6 +97,7 @@ public class userAccount extends AppCompatActivity {
                                     serviceIntent.putExtra("message", notification.getText());
                                     PendingIntent intent = PendingIntent.getBroadcast(getBaseContext(), new Random().nextInt(), serviceIntent, 0);
                                     manager.setExact(AlarmManager.RTC_WAKEUP, calendar.getTimeInMillis()+time, intent);
+
                                 }
                             }
                         }

@@ -18,12 +18,13 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
+
     <Button
         android:id="@+id/selectDateBt"
-        android:layout_width="203dp"
-        android:layout_height="57dp"
-        android:layout_marginTop="40dp"
-        android:backgroundTint="#DA8486"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="100dp"
+        android:backgroundTint="#DA8686"
         android:fontFamily="@font/autour_one"
         android:foregroundTint="#000000"
         android:text="select date"
@@ -32,10 +33,23 @@
         app:layout_constraintTop_toBottomOf="@+id/addingTextNotification" />
 
     <Button
+        android:id="@+id/selectTimeBt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="80dp"
+        android:backgroundTint="#DA8686"
+        android:fontFamily="@font/autour_one"
+        android:foregroundTint="#000000"
+        android:text="select time"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/selectDateBt" />
+
+    <Button
         android:id="@+id/saveNotificationBt"
         android:layout_width="179dp"
         android:layout_height="56dp"
-        android:backgroundTint="#EDC8C8"
+        android:backgroundTint="#DA6666"
         android:text="SAVE"
         android:textSize="24sp"
         app:layout_constraintBottom_toBottomOf="parent"

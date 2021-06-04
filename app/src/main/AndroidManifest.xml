@@ -44,6 +44,10 @@
         <activity android:name=".registration" />
         <activity android:name=".chooseType" />
         <activity android:name=".addNewPet" />
+        <activity android:name=".faqDogTricks"/>
+        <activity android:name=".faqDogFeeding"/>
+        <activity android:name=".faqDogOther"/>
+        <activity android:name=".faqDogBehaviour"/>
         <activity android:name=".userAccount" />
         <activity android:name=".MainActivity">
             <intent-filter>
@@ -52,6 +56,10 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <meta-data
+            android:name="preloaded_fonts"
+            android:resource="@array/preloaded_fonts" />
     </application>
 
 </manifest>

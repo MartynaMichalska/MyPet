@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/bg1"
     tools:context=".myPets">
 
     <androidx.recyclerview.widget.RecyclerView
@@ -16,12 +17,13 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <Button
+    <android.widget.Button
         android:id="@+id/addPet"
         android:layout_width="149dp"
         android:layout_height="66dp"
         android:layout_marginBottom="16dp"
-        android:backgroundTint="#DA8486"
+        android:background="@drawable/outline_bt"
+        android:textColor="@color/white"
         android:fontFamily="@font/autour_one"
         android:text="ADD A NEW PET"
         app:layout_constraintBottom_toBottomOf="parent"

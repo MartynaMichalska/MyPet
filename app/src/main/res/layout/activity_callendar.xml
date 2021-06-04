@@ -3,6 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
+    android:background="@drawable/bg1"
     android:layout_height="match_parent"
     tools:context=".petNotifications">
 
@@ -15,14 +16,15 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <Button
+    <android.widget.Button
         android:id="@+id/callendarAddBt"
         android:layout_width="111dp"
         android:layout_height="60dp"
         android:layout_marginBottom="16dp"
         android:text="ADD"
-        android:backgroundTint="#DA8486"
+        android:background="@drawable/outline_bt"
         android:fontFamily="@font/autour_one"
+        android:textColor="@color/white"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />

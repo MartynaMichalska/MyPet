@@ -107,12 +107,13 @@
         app:layout_constraintTop_toBottomOf="@+id/tricksDog"
         app:layout_constraintVertical_bias="0.8" />
 
-    <Button
+    <android.widget.Button
         android:id="@+id/backToMainMainFaq1"
         android:layout_width="151dp"
         android:layout_height="39dp"
         android:layout_marginBottom="16dp"
-        android:backgroundTint="#DA8486"
+       android:background="@drawable/outline_bt"
+        android:textColor="@color/white"
         android:fontFamily="@font/autour_one"
         android:text="BACK"
         app:layout_constraintBottom_toBottomOf="parent"

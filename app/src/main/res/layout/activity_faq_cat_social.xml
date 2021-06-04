@@ -54,6 +54,7 @@
             android:background="#E3ABAC"
             android:fontFamily="sans-serif-light"
             android:gravity="center"
+            android:textColor="@color/white"
             android:text="Cats that are introduced too quickly and fight may never learn to coexist peacefully!"
             android:textSize="20dp" />
 

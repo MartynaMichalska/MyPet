@@ -4,6 +4,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
+    android:background="@drawable/bg1"
     android:layout_height="match_parent">
 
     <TextView
@@ -90,12 +91,13 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView26" />
 
-    <Button
+    <android.widget.Button
         android:id="@+id/petInfo02Next"
         android:layout_width="131dp"
         android:layout_height="69dp"
         android:layout_marginTop="552dp"
-        android:backgroundTint="#DA8684"
+        android:background="@drawable/outline_bt"
+        android:textColor="@color/white"
         android:fontFamily="@font/autour_one"
         android:text="NEXT"
         android:textSize="18sp"

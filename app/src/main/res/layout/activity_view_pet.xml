@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
+    android:background="@drawable/bg1"
     android:layout_height="match_parent">
 
     <LinearLayout
@@ -75,17 +76,19 @@
             android:textColor="#000"
             android:textSize="12sp" />
 
-        <Button
+        <android.widget.Button
             android:id="@+id/viewPet_delete_btn"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:backgroundTint="#DA8486"
+            android:background="@drawable/outline_bt"
+            android:textColor="@color/white"
             android:text="DELETE" />
-        <Button
+        <android.widget.Button
             android:id="@+id/viewPet_edit_btn"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:backgroundTint="#DA8486"
+            android:background="@drawable/outline_bt"
+            android:textColor="@color/white"
             android:text="@string/edit" />
 
     </LinearLayout>

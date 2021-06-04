@@ -4,6 +4,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
+    android:background="@drawable/bg1"
     android:layout_height="match_parent">
 
     <TextView
@@ -110,13 +111,14 @@
             android:inputType="number" />
     </com.google.android.material.textfield.TextInputLayout>
 
-    <Button
+    <android.widget.Button
         android:id="@+id/petInfoNext"
         android:layout_width="103dp"
         android:layout_height="56dp"
         android:layout_marginTop="25dp"
         android:layout_marginBottom="16dp"
-        android:backgroundTint="#DA8684"
+       android:background="@drawable/outline_bt"
+        android:textColor="@color/white"
         android:fontFamily="@font/autour_one"
         android:text="Next"
         android:textSize="18sp"

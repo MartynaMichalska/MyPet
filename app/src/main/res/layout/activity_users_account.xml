@@ -2,64 +2,73 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:background="@drawable/bg1"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".userAccount">
 
-    <Button
+
+    <android.widget.Button
         android:id="@+id/showPetsButton"
         android:layout_width="150dp"
         android:layout_height="60dp"
         android:layout_marginTop="60dp"
         android:fontFamily="@font/autour_one"
         android:text="MY PETS"
+        android:textColor="@color/white"
+        android:background="@drawable/outline_bt"
         app:backgroundTint="#94EDA6A6"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView" />
 
-    <Button
+    <android.widget.Button
         android:id="@+id/logoutButton"
         android:layout_width="150dp"
         android:layout_height="60dp"
         android:layout_marginTop="60dp"
-        android:backgroundTint="#94EDA6A6"
+        android:textColor="@color/white"
+        android:background="@drawable/outline_bt"
         android:fontFamily="@font/autour_one"
         android:text="SIGN OUT"
+        android:textAllCaps="false"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/accountManagementBt" />
 
-    <Button
+    <android.widget.Button
         android:id="@+id/callendarBt"
         android:layout_width="150dp"
         android:layout_height="60dp"
         android:layout_marginTop="60dp"
-        android:backgroundTint="#DA8686"
+        android:textColor="@color/white"
+        android:background="@drawable/second_outline"
         android:fontFamily="@font/autour_one"
         android:text="CALLENDAR"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/showPetsButton" />
 
-    <Button
+    <android.widget.Button
         android:id="@+id/faqBt"
         android:layout_width="150dp"
         android:layout_height="60dp"
         android:layout_marginTop="60dp"
-        android:backgroundTint="#94EDA6A6"
+        android:textColor="@color/white"
+        android:background="@drawable/outline_bt"
         android:fontFamily="@font/autour_one"
         android:text="FAQ"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/callendarBt" />
 
-    <Button
+    <android.widget.Button
         android:id="@+id/accountManagementBt"
         android:layout_width="150dp"
         android:layout_height="60dp"
         android:layout_marginTop="60dp"
-        android:backgroundTint="#DA8686"
+        android:textColor="@color/white"
+        android:background="@drawable/second_outline"
         android:fontFamily="@font/autour_one"
         android:text="ACCOUNT MANAGMENT"
         app:layout_constraintEnd_toEndOf="parent"
@@ -71,11 +80,28 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="52dp"
-        android:fontFamily="@font/autour_one"
-        android:text="MENU"
-        android:textSize="18sp"
+        android:fontFamily="serif-monospace"
+        android:text="Welcome! It's your main page."
+        android:textSize="25sp"
+        android:gravity="center"
+        android:foregroundGravity="center"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/imageView6"
+        android:layout_width="500dp"
+        android:layout_height="550dp"
+        android:layout_marginStart="20dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.55"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView"
+        app:layout_constraintVertical_bias="0.506"
+        app:srcCompat="@drawable/_111" />
+
+
 </androidx.constraintlayout.widget.ConstraintLayout>

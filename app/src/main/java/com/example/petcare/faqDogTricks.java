@@ -7,17 +7,17 @@ import android.os.Bundle;
 import android.widget.Button;
 
 public class faqDogTricks extends AppCompatActivity {
-    ///private Button back;
+    private Button back;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.faq_dog_tricks);
-        //back=(Button) findViewById(R.id.backToMainFaq);
-        //back.setOnClickListener(v -> openMainAc());
+        back= (Button) findViewById(R.id.backDogsTricks);
+        back.setOnClickListener(v -> openMainAc());
     }
 
     private void openMainAc() {
-        Intent intent= new Intent(this, faqCatsMain.class);
+        Intent intent= new Intent(this, faqDogsMain.class);
         startActivity(intent);
     }
 }

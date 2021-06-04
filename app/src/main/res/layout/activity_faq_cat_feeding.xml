@@ -3,6 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/transition"
+    android:background="@drawable/bg1"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".faqCatFeeding">
@@ -57,11 +58,12 @@
         app:layout_constraintTop_toBottomOf="@+id/textView11"
         app:srcCompat="@drawable/ic_calendar_left" />
 
-    <Button
+    <android.widget.Button
         android:id="@+id/backToMainFaqqq"
         android:layout_width="242dp"
         android:layout_height="46dp"
-        android:backgroundTint="#DA8486"
+        android:background="@drawable/outline_bt"
+        android:textColor="@color/white"
         android:fontFamily="@font/autour_one"
         android:text="BACK"
         app:layout_constraintEnd_toEndOf="parent"

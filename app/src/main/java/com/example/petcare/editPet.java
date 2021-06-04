@@ -48,10 +48,15 @@ import id.zelory.compressor.Compressor;
 public class editPet extends AppCompatActivity {
     private FirebaseFirestore firebaseFirestore;
     public final static String Arg_PetID = "Arg_PetID";
-    private EditText nameEt, breedEt, birthEt, weightEt;
+    private EditText nameEt,  weightEt;
     private SwitchCompat sterilisedBTN, medsBTN, maleBTN, dogBTN;
     private Spinner spinner;
+    private Spinner day;
+    private Spinner mont;
+    private Spinner yr;
+    private Spinner breed;
     private String petID;
+    private String datka;
     private ImageView imageView;
     private String imageUrl;
     private Uri imageUri;
@@ -81,8 +86,10 @@ public class editPet extends AppCompatActivity {
 
     private void innitViews() {
         nameEt = findViewById(R.id.editPet_name_txt);
-        breedEt = findViewById(R.id.editPet_bread_txt);
-        birthEt = findViewById(R.id.editPet_birth_txt);
+        breed = findViewById(R.id.editPetBreed);
+        day = findViewById(R.id.editDateDay);
+        mont = findViewById(R.id.editDateMonth);
+        yr = findViewById(R.id.editDateYear);
         weightEt = findViewById(R.id.editPet_weight_txt);
         spinner = findViewById(R.id.editPet_spinner_view);
         medsBTN = findViewById(R.id.editPet_meds_btn);
@@ -110,9 +117,8 @@ public class editPet extends AppCompatActivity {
     private void fillUI(Pet pet) {
         Log.d("pet:","isMale:"+pet.isIsMale());
         nameEt.setText(pet.getName());
-        breedEt.setText(pet.getBreed());
-        birthEt.setText(pet.getDateOfBirth());
         weightEt.setText(pet.getWeight()+"");
+        breed.setSelection(findBreedIndex(pet.getBreed()));
         spinner.setSelection(findMedsIndex(pet.getMedsHowOften()));
         sterilisedBTN.setChecked(pet.isIsSterlilised());
         medsBTN.setChecked(pet.isIsMeds());
@@ -140,25 +146,48 @@ public class editPet extends AppCompatActivity {
                            String photo){
         //public Pet(String id, String ownerId, boolean isSterlilised, boolean isMeds, boolean isMale,
         //boolean isDog, String name, String breed, String dateOfBirth, int weight, String medsHowOften, String photo)
-        firebaseFirestore.collection("pets").document(petID).set(new Pet(petID,
-                ownerID,
-                sterilised,
-                meds,
-                sex,
-                isDog,
-                name,
-                breed,
-                birth,
-                weight,
-                medsHowOften,
-                photo
-        )).addOnCompleteListener(this, new OnCompleteListener<Void>() {
-            @Override
-            public void onComplete(@NonNull Task<Void> task) {
-                onBackPressed();
-            }
-        });
+        if(dataValidation()) {
+            firebaseFirestore.collection("pets").document(petID).set(new Pet(petID,
+                    ownerID,
+                    sterilised,
+                    meds,
+                    sex,
+                    isDog,
+                    name,
+                    breed,
+                    birth,
+                    weight,
+                    medsHowOften,
+                    photo
+            )).addOnCompleteListener(this, new OnCompleteListener<Void>() {
+                @Override
+                public void onComplete(@NonNull Task<Void> task) {
+                    onBackPressed();
+                }
+            });
+        }
+    }
 
+
+
+    private boolean dataValidation() {
+        Integer weightt = Integer.parseInt(weightEt.getText().toString());
+        if(nameEt.getText().toString().isEmpty() || weightEt.getText().toString().isEmpty())
+        {
+            Toast.makeText(this, "Please fill the blank spaces ! ", Toast.LENGTH_SHORT).show();
+            return false;
+        }
+        if(!(nameEt.getText().toString().length()>0))
+        {
+            Toast.makeText(this, "Name is too short!",Toast.LENGTH_SHORT).show();
+            return false;
+        }
+        if(weightt>40  || weightt<0 )
+        {
+            Toast.makeText(this, "Wrong weight value!",Toast.LENGTH_SHORT).show();
+            return false;
+        }
+return true;
     }
 
     private Integer findMedsIndex(String text){
@@ -169,6 +198,18 @@ public class editPet extends AppCompatActivity {
             }
         }
         return 0;
+
+    }
+    private Integer findBreedIndex (String text)
+    {
+        String [] items = getResources().getStringArray(R.array.Strain);
+        for(int i = 0; i<items.length; i++){
+            if(items[i].equals(text)){
+                return i;
+            }
+        }
+        return 0;
+
 
     }
     private void choosePicture() {
@@ -226,24 +267,6 @@ public class editPet extends AppCompatActivity {
                 });
     }
 
-    private byte[] resizeImage(Uri imageUri) {
-        try {
-            Bitmap bitmap = new Compressor(this)
-                    .setMaxHeight(800) //Set height and width
-                    .setMaxWidth(600)
-                    .setQuality(85) // Set Quality
-                    .compressToBitmap(new File(imageUri.getPath()));
-            ByteArrayOutputStream baos = new ByteArrayOutputStream();
-            bitmap.compress(Bitmap.CompressFormat.JPEG, 85, baos);
-            return baos.toByteArray();
-
-        } catch (IOException e) {
-            e.printStackTrace();
-            return null;
-        }
-
-
-    }
     private byte [] getFromImageView(ImageView imageView)
     {
         Bitmap bitmap = ((BitmapDrawable) imageView.getDrawable()).getBitmap();
@@ -264,17 +287,17 @@ public class editPet extends AppCompatActivity {
         });
     }
     private void updatePet(String imageUrl) {
+        datka = day.getItemAtPosition(day.getSelectedItemPosition())+"."+mont.getItemAtPosition(mont.getSelectedItemPosition())+"."+yr.getItemAtPosition(yr.getSelectedItemPosition());
         String name = nameEt.getText().toString();
-        String birth = birthEt.getText().toString();
-        String breed = breedEt.getText().toString();
         Integer weight = Integer.parseInt(weightEt.getText().toString());
         boolean meds = medsBTN.isChecked();
         boolean sex = maleBTN.isChecked();
         boolean type = dogBTN.isChecked();
         boolean sterilised = sterilisedBTN.isChecked();
+        String breed2 = getResources().getStringArray(R.array.Strain)[breed.getSelectedItemPosition()];
         String medsHowOften = getResources().getStringArray(R.array.medsTimes)[spinner.getSelectedItemPosition()];
         String ownerID = FirebaseAuth.getInstance().getCurrentUser().getUid();
-        updatePet(name, breed, birth, weight, meds, sex, type, sterilised, medsHowOften, ownerID, petID, imageUrl);
+        updatePet(name, breed2, datka, weight, meds, sex, type, sterilised, medsHowOften, ownerID, petID, imageUrl);
 
     }
 

@@ -39,39 +39,65 @@
             android:textColor="#000"
             android:textSize="12sp" />
 
-        <EditText
-            android:id="@+id/editPet_bread_txt"
-            android:layout_width="match_parent"
+        <Spinner
+            android:id="@+id/editPetBreed"
+            android:layout_width="400dp"
             android:layout_height="wrap_content"
-            android:layout_marginTop="4dp"
-            android:layout_marginBottom="8dp"
-            android:fontFamily="sans-serif-light"
-            android:hint="enter text"
-            android:textSize="14sp" />
+            android:entries="@array/Strain" />
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:fontFamily="@font/autour_one"
-            android:text="Date of birth"
+            android:text="Day of birth"
+            android:textColor="#000"
+            android:layout_marginTop="15dp"
+            android:textSize="12sp" />
+
+        <Spinner
+            android:id="@+id/editDateDay"
+            android:layout_width="100dp"
+            android:layout_height="30dp"
+            android:entries="@array/dayz"
+            android:layout_gravity="left"
+            android:layout_weight="0.5"
+            />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/autour_one"
+            android:text="Month of birth"
             android:textColor="#000"
             android:textSize="12sp" />
 
-        <EditText
-            android:id="@+id/editPet_birth_txt"
+        <Spinner
+            android:id="@+id/editDateMonth"
+            android:layout_width="100dp"
+            android:layout_height="30dp"
+            android:layout_gravity="left"
+            android:layout_weight="0.5"
+            android:entries="@array/mothz" />
+        <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="4dp"
-            android:layout_marginBottom="8dp"
-            android:fontFamily="sans-serif-light"
-            android:hint="enter text"
-            android:textSize="14sp" />
+            android:fontFamily="@font/autour_one"
+            android:text="Year of birth"
+            android:textColor="#000"
+            android:textSize="12sp" />
+
+        <Spinner
+            android:id="@+id/editDateYear"
+            android:layout_width="150dp"
+            android:layout_height="30dp"
+            android:layout_gravity="left"
+            android:entries="@array/yrs" />
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:fontFamily="@font/autour_one"
             android:text="Weight"
+            android:layout_marginTop="15dp"
             android:textColor="#000"
             android:textSize="12sp" />
 
@@ -83,6 +109,7 @@
             android:layout_marginBottom="8dp"
             android:fontFamily="sans-serif-light"
             android:hint="enter text"
+            android:inputType="numberSigned"
             android:textSize="14sp" />
 
         <TextView

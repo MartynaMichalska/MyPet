@@ -10,7 +10,7 @@
         android:orientation="vertical"
         android:padding="8dp">
         <TextView
-            android:layout_width="400dp"
+            android:layout_width="350dp"
             android:layout_height="70dp"
             android:text="Adding a second cat into your houseohold?"
             android:layout_gravity="center"
@@ -31,7 +31,7 @@
             />
 
         <ImageView
-            android:layout_width="400dp"
+            android:layout_width="350dp"
             android:layout_height="300dp"
             android:layout_gravity="center"
             android:layout_marginTop="60dp"
@@ -59,7 +59,7 @@
 
 
         <ImageView
-            android:layout_width="400dp"
+            android:layout_width="350dp"
             android:layout_height="300dp"
             app:srcCompat="@drawable/social1"
             android:layout_gravity="center"/>
@@ -71,25 +71,25 @@
             app:srcCompat="@drawable/social2" />
 
         <ImageView
-            android:layout_width="400dp"
+            android:layout_width="350dp"
             android:layout_height="300dp"
             android:layout_gravity="center"
             app:srcCompat="@drawable/social33" />
 
         <ImageView
-            android:layout_width="400dp"
+            android:layout_width="350dp"
             android:layout_height="300dp"
             android:layout_gravity="center"
             app:srcCompat="@drawable/social4" />
 
         <ImageView
-            android:layout_width="400dp"
+            android:layout_width="350dp"
             android:layout_height="300dp"
             android:layout_gravity="center"
             app:srcCompat="@drawable/social5" />
 
         <ImageView
-            android:layout_width="400dp"
+            android:layout_width="350dp"
             android:layout_height="300dp"
             android:layout_gravity="center"
             app:srcCompat="@drawable/social66" />

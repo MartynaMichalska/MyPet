@@ -66,6 +66,7 @@ public class viewPet extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_view_pet);
         innitViews();
+
         petID = getIntent().getStringExtra(Arg_PetID);
         storage = FirebaseStorage.getInstance();
         firebaseFirestore = FirebaseFirestore.getInstance();

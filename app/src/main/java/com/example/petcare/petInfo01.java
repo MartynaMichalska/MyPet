@@ -60,7 +60,7 @@ public class petInfo01 extends AppCompatActivity {
                 Integer position = petStrain.getSelectedItemPosition();
                if(position > -1 && dataValidation(name.getText().toString(), weight.getText().toString()))
                {
-                   Integer d, m, y;
+                   //Integer d, m, y;
                    String date = dateDay.getItemAtPosition(dateDay.getSelectedItemPosition())+"."+dateMonth.getItemAtPosition(dateMonth.getSelectedItemPosition())+"."+dateYear.getItemAtPosition(dateYear.getSelectedItemPosition());
                    String petStrain = getResources().getStringArray(R.array.Strain)[position];
                    openActivity(name.getText().toString(), Integer.parseInt(weight.getText().toString()), date,  petStrain);

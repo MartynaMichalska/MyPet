@@ -1,9 +1,71 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".faqCatOther">
+    android:layout_height="match_parent">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="10dp">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="24dp"
+            android:fontFamily="sans-serif-smallcaps"
+            android:background="#F3E2E2"
+            android:text="Cats- most common mistakes"
+            android:gravity="center"
+            android:layout_marginTop="30dp"
+            android:layout_gravity="center"/>
+
+        <ImageView
+            android:layout_width="400dp"
+            android:layout_height="300dp"
+            android:layout_gravity="center"
+            android:layout_marginTop="30dp"
+            app:srcCompat="@drawable/one" />
+
+        <ImageView
+            android:layout_width="370dp"
+            android:layout_height="300dp"
+            android:layout_gravity="center"
+            android:layout_marginTop="30dp"
+            app:srcCompat="@drawable/two" />
+
+        <ImageView
+            android:layout_width="370dp"
+            android:layout_height="300dp"
+            android:layout_gravity="center"
+            android:layout_marginTop="30dp"
+            app:srcCompat="@drawable/three" />
+        <ImageView
+            android:layout_width="370dp"
+            android:layout_height="350dp"
+            android:layout_marginTop="30dp"
+            android:layout_gravity="center"
+            app:srcCompat="@drawable/four"/>
+        <ImageView
+            android:layout_width="900dp"
+            android:layout_height="400dp"
+            android:layout_marginTop="30dp"
+            android:layout_gravity="center"
+            app:srcCompat="@drawable/five"
+            />
+        <android.widget.Button
+            android:layout_width="400dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30dp"
+          android:background="@drawable/outline_bt"
+            android:text="FINISH READING"
+            android:layout_gravity="center"
+            android:textSize="20dp"
+            android:textColor="@color/white"
+            android:id="@+id/backToMainFaq6"/>
+
+
+
+
+    </LinearLayout>
+</androidx.core.widget.NestedScrollView>

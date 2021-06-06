@@ -12,7 +12,7 @@ private Button back;
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_faq_cat_tricks);
-        back=(Button) findViewById(R.id.backToMainFaq);
+        back=(Button) findViewById(R.id.backToMainFaq3);
         back.setOnClickListener(v -> openMainAc());
     }
 

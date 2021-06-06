@@ -1,7 +1,9 @@
 package com.example.petcare;
 
 import android.app.ProgressDialog;
+import android.content.ComponentName;
 import android.content.Intent;
+import android.content.pm.ResolveInfo;
 import android.graphics.Bitmap;
 import android.graphics.drawable.BitmapDrawable;
 import android.net.Uri;
@@ -33,11 +35,13 @@ import com.google.firebase.storage.UploadTask;
 import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.IOException;
+import java.util.List;
 import java.util.UUID;
 
 import id.zelory.compressor.Compressor;
 
 public class addingPicture extends AppCompatActivity {
+    private static final int CROP_FROM_CAMERA = 5;
     private FirebaseAuth mAuth;
     private FirebaseFirestore db;
     private ImageView picture;
@@ -45,6 +49,7 @@ public class addingPicture extends AppCompatActivity {
     private FirebaseStorage storage;
     private StorageReference storageReference;
     private Uri storageUri;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -52,7 +57,7 @@ public class addingPicture extends AppCompatActivity {
         db = FirebaseFirestore.getInstance();
         setContentView(R.layout.activity_adding_picture);
         Button next = findViewById(R.id.addPicButton);
-        picture= findViewById(R.id.yourPetPic);
+        picture = findViewById(R.id.yourPetPic);
         storage = FirebaseStorage.getInstance();
         storageReference = storage.getReference();
         picture.setOnClickListener(new View.OnClickListener() {
@@ -66,19 +71,44 @@ public class addingPicture extends AppCompatActivity {
 
 
     private void choosePicture() {
-        Intent intent = new Intent ();
+        Intent intent = new Intent();
         intent.setType("image/*");
         intent.setAction(Intent.ACTION_GET_CONTENT);
-        startActivityForResult(intent,1);
+        startActivityForResult(intent, 1);
     }
+
     @Override
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
-        if(requestCode==1 && resultCode==RESULT_OK && data!=null && data.getData()!=null)
-        {
+        if (requestCode == 1 && resultCode == RESULT_OK && data != null && data.getData() != null) {
             imageUri = data.getData();
             picture.setImageURI(imageUri);
             uploadPicture();
+        }
+    }
+
+    private void cropImage(Uri imageUri) {
+        Intent intent = new Intent("com.android.camera.action.CROP");
+        intent.setType("image/*");
+        List<ResolveInfo> list = getPackageManager().queryIntentActivities(intent, 0);
+        int size = list.size();
+        if (size == 0) {
+            Toast.makeText(this, "Can not find image crop app", Toast.LENGTH_SHORT).show();
+            return;
+        } else {
+            intent.setData(imageUri);
+            intent.putExtra("outputX", 400);
+            intent.putExtra("outputY", 400);
+            intent.putExtra("aspectX", 1);
+            intent.putExtra("aspectY", 1);
+            intent.putExtra("scale", true);
+            intent.putExtra("return-data",true);
+            if (size == 1) {
+                Intent i = new Intent(intent);
+                ResolveInfo res = list.get(0);
+                i.setComponent(new ComponentName(res.activityInfo.packageName, res.activityInfo.name));
+                startActivityForResult(i, CROP_FROM_CAMERA);
+            }
         }
     }
 
@@ -89,14 +119,14 @@ public class addingPicture extends AppCompatActivity {
         pd.show();
 
         byte[] dataToSend = getFromImageView(picture);
-        if(dataToSend == null){
+        if (dataToSend == null) {
             pd.cancel();
             Snackbar.make(findViewById(android.R.id.content), "Image resize error", Snackbar.LENGTH_LONG).show();
             return;
         }
 
         final String randomKey = UUID.randomUUID().toString();
-        StorageReference petPic = storageReference.child("images/"+randomKey);
+        StorageReference petPic = storageReference.child("images/" + randomKey);
         petPic.putBytes(dataToSend)
                 .addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
                     @Override
@@ -116,8 +146,8 @@ public class addingPicture extends AppCompatActivity {
                 .addOnProgressListener(new OnProgressListener<UploadTask.TaskSnapshot>() {
                     @Override
                     public void onProgress(@NonNull UploadTask.TaskSnapshot snapshot) {
-                        double progresPercent = ( 100.00 * snapshot.getBytesTransferred() / snapshot.getTotalByteCount());
-                        pd.setMessage("Percentage: "+(int) progresPercent + "%");
+                        double progresPercent = (100.00 * snapshot.getBytesTransferred() / snapshot.getTotalByteCount());
+                        pd.setMessage("Percentage: " + (int) progresPercent + "%");
                     }
                 });
     }
@@ -140,8 +170,8 @@ public class addingPicture extends AppCompatActivity {
 
 
     }
-    private byte [] getFromImageView(ImageView imageView)
-    {
+
+    private byte[] getFromImageView(ImageView imageView) {
         Bitmap bitmap = ((BitmapDrawable) imageView.getDrawable()).getBitmap();
         ByteArrayOutputStream baos = new ByteArrayOutputStream();
         bitmap.compress(Bitmap.CompressFormat.JPEG, 50, baos);
@@ -160,27 +190,25 @@ public class addingPicture extends AppCompatActivity {
     }
 
 
-    public void openActivity()
-    {
-        if(storageUri == null){
+    public void openActivity() {
+        if (storageUri == null) {
             Toast.makeText(this, "Photo was not taken.", Toast.LENGTH_SHORT).show();
             return;
         }
         DocumentReference doc = db.collection("pets").document();
-        doc.set(Pet.create(getIntent(),doc.getId(),mAuth.getCurrentUser().getUid(), storageUri.toString()))
+        doc.set(Pet.create(getIntent(), doc.getId(), mAuth.getCurrentUser().getUid(), storageUri.toString()))
                 .addOnCompleteListener(this, this::handleAdd);
-        Intent intent= new Intent(this,addPetFinish.class);
+        Intent intent = new Intent(this, addPetFinish.class);
         startActivity(intent);
     }
 
     private void handleAdd(Task<Void> voidTask) {
-        if(voidTask.isSuccessful()){
-            Intent intent= new Intent(this,addPetFinish.class);
+        if (voidTask.isSuccessful()) {
+            Intent intent = new Intent(this, addPetFinish.class);
             startActivity(intent);
 
-        }
-        else{
-            Toast.makeText(this, "Error occurred"+ voidTask.getException(), Toast.LENGTH_SHORT).show();
+        } else {
+            Toast.makeText(this, "Error occurred" + voidTask.getException(), Toast.LENGTH_SHORT).show();
         }
     }
 }

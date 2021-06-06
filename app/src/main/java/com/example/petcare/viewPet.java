@@ -42,9 +42,12 @@ import com.google.firebase.storage.OnProgressListener;
 import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
 import com.example.petcare.db.Pet;
+import com.google.firestore.v1.Document;
+
 import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.IOException;
+import java.util.List;
 import java.util.UUID;
 
 import id.zelory.compressor.Compressor;
@@ -66,20 +69,42 @@ public class viewPet extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_view_pet);
         innitViews();
-
         petID = getIntent().getStringExtra(Arg_PetID);
         storage = FirebaseStorage.getInstance();
         firebaseFirestore = FirebaseFirestore.getInstance();
         storageReference = storage.getReference();
-        firebaseFirestore.collection("pets").document(petID).addSnapshotListener(this, new EventListener<DocumentSnapshot>() {
+        firebaseFirestore.collection("pets").document(petID).addSnapshotListener(new EventListener<DocumentSnapshot>() {
             @Override
             public void onEvent(@Nullable DocumentSnapshot value, @Nullable FirebaseFirestoreException error) {
                 if (value.exists()) {
                     fillUI(value.toObject(Pet.class));
                 }
+                else{
+                    finish();
+                }
             }
         });
         editPet_btn.setOnClickListener(v -> openActivityEditPet(petID));
+        deletePet_btn.setOnClickListener(v -> deletePet(petID));
+    }
+
+    private void deletePet(String petID) {
+        firebaseFirestore.collection("pets").document(petID).delete();
+        firebaseFirestore.collection("notifications")
+                .whereEqualTo("petID", petID).get().addOnCompleteListener(this, new OnCompleteListener<QuerySnapshot>() {
+            @Override
+            public void onComplete(@NonNull Task<QuerySnapshot> task) {
+                if(task.isSuccessful()){
+                    List<DocumentSnapshot> documents =
+                    task.getResult().getDocuments();
+                    for(DocumentSnapshot document : documents){
+                        firebaseFirestore.collection("notifications").document(document.getId()).delete();
+                    }
+                }
+                finish();
+            }
+        });
+
     }
 
     private void innitViews() {
@@ -91,6 +116,7 @@ public class viewPet extends AppCompatActivity {
         weight = findViewById(R.id.viewPet_weight);
         imageView = findViewById(R.id.viewPet_imageView);
         editPet_btn = findViewById(R.id.viewPet_edit_btn);
+        deletePet_btn = findViewById(R.id.viewPet_delete_btn);
 
 
     }

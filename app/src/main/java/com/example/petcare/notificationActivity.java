@@ -31,7 +31,7 @@ import java.util.Locale;
 public class notificationActivity extends AppCompatActivity {
     private FirebaseFirestore firebaseFirestore;
     private EditText textInput;
-    private Button selectDateButton;
+    private Button selectDateButton, deleteBtn;
     private Button selectTimeButton;
     private Button addBt;
     private Pet pet;
@@ -41,6 +41,7 @@ public class notificationActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_notification);
+        deleteBtn = findViewById(R.id.deleteNotificationBt);
         firebaseFirestore = FirebaseFirestore.getInstance();
         textInput = (EditText) findViewById(R.id.addingTextNotification);
         selectDateButton = (Button) findViewById(R.id.selectDateBt);
@@ -50,6 +51,12 @@ public class notificationActivity extends AppCompatActivity {
         String petID = getIntent().getStringExtra("petID");
         if (petID != null){
             getPetName(petID);
+        }
+        if(notificationID == null){
+            deleteBtn.setVisibility(View.INVISIBLE);
+        }
+        else{
+            deleteBtn.setVisibility(View.VISIBLE);
         }
         selectTimeButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -76,6 +83,8 @@ public class notificationActivity extends AppCompatActivity {
                 timePickerDialog.show();
             }
         });
+
+        deleteBtn.setOnClickListener(v -> deleteNotification(notificationID));
 
         selectDateButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -104,7 +113,7 @@ public class notificationActivity extends AppCompatActivity {
                     String text = textInput.getText().toString();
                     String date = selectDateButton.getText().toString();
                     String time = selectTimeButton.getText().toString();
-                    if(text.length()>0 && date.length()>0 && time.length()>0)
+                    if(text.length()>0 && !date.equals("select date") && !time.equals("select time"))
                     {
                         addNotification(textInput.getText().toString(), selectDateButton.getText().toString(), selectTimeButton.getText().toString(), petID);
 
@@ -122,30 +131,35 @@ public class notificationActivity extends AppCompatActivity {
             firebaseFirestore.collection("notifications").document(notificationID).addSnapshotListener(this, new EventListener<DocumentSnapshot>() {
                 @Override
                 public void onEvent(@Nullable DocumentSnapshot value, @Nullable FirebaseFirestoreException error) {
-                    Notification notification = value.toObject(Notification.class);
-                    textInput.setText(notification.getText());
-                    selectDateButton.setText(notification.getDate());
-                    selectTimeButton.setText(notification.getTime());
-                    addBt.setOnClickListener(new View.OnClickListener() {
-                        @Override
-                        public void onClick(View v) {
-                            String text = textInput.getText().toString();
-                            String date = selectDateButton.getText().toString();
-                            String time = selectTimeButton.getText().toString();
-                            if(text.length()>0 && date.length()>0 && time.length()>0)
-                            {
-                                updateNotification(text, date, time, notification.getId(), notification.getPetID());
-                            }
-                            else
-                            {
+                    if(value != null && value.exists() && error == null) {
+                        Notification notification = value.toObject(Notification.class);
+                        textInput.setText(notification.getText());
+                        selectDateButton.setText(notification.getDate());
+                        selectTimeButton.setText(notification.getTime());
+                        addBt.setOnClickListener(new View.OnClickListener() {
+                            @Override
+                            public void onClick(View v) {
+                                String text = textInput.getText().toString();
+                                String date = selectDateButton.getText().toString();
+                                String time = selectTimeButton.getText().toString();
+                                if (text.length() > 0 && !date.equals("select date") && !time.equals("select time")) {
+                                    updateNotification(text, date, time, notification.getId(), notification.getPetID(), notification.getPetName());
+                                } else {
+
+                                }
 
                             }
 
-                        }
-                    });
+                        });
+                    }
                 }
             });
         }
+    }
+
+    private void deleteNotification(String notificationID) {
+        firebaseFirestore.collection("notifications").document(notificationID).delete();
+        finish();
     }
 
     private void getNotificationDetails(String notificationID) {
@@ -174,7 +188,7 @@ public class notificationActivity extends AppCompatActivity {
                 });
 
     }
-    private void updateNotification(String text, String date, String time, String notificationID, String petID) {
+    private void updateNotification(String text, String date, String time, String notificationID, String petID, String petName) {
         firebaseFirestore.collection("notifications").document(notificationID)
                 .set(new Notification(
                         notificationID,
@@ -182,7 +196,7 @@ public class notificationActivity extends AppCompatActivity {
                         text,
                         date,
                         time, FirebaseAuth.getInstance().getCurrentUser().getUid(),
-                        pet.getName()))
+                        petName))
                 .addOnCompleteListener(this, new OnCompleteListener<Void>() {
                     @Override
                     public void onComplete(@NonNull Task<Void> task) {

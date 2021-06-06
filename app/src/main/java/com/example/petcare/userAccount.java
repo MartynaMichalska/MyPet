@@ -11,6 +11,7 @@ import android.app.PendingIntent;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 
@@ -80,32 +81,36 @@ public class userAccount extends AppCompatActivity {
 
 
 
-                        try {
+
                             long time = 0;
                             for (Notification notification : items) {
-                                Calendar calendar = Calendar.getInstance();
-                                calendar.setTime(dateFormat.parse(notification.getDate()));
-                                String[] timeFormatParser = notification.getTime().split( ":" );
-                                int hour = Integer.parseInt ( timeFormatParser[0].trim() );
-                                int min = Integer.parseInt ( timeFormatParser[1].trim() );
-                                calendar.set(Calendar.HOUR_OF_DAY, hour);
-                                calendar.set(Calendar.MINUTE, min);
-                                if(calendar.getTimeInMillis() >= System.currentTimeMillis()) {
-                                    time += 10000;
-                                    Intent serviceIntent = new Intent(getBaseContext(), NotificationService.class);
-                                    serviceIntent.putExtra("petName", notification.getPetName());
-                                    serviceIntent.putExtra("message", notification.getText());
-                                    PendingIntent intent = PendingIntent.getBroadcast(getBaseContext(), new Random().nextInt(), serviceIntent, 0);
-                                    manager.setExact(AlarmManager.RTC_WAKEUP, calendar.getTimeInMillis()+time, intent);
+                                try{
+                                    Calendar calendar = Calendar.getInstance();
+                                    calendar.setTime(dateFormat.parse(notification.getDate()));
+                                    String[] timeFormatParser = notification.getTime().split( ":" );
+                                    int hour = Integer.parseInt ( timeFormatParser[0].trim() );
+                                    int min = Integer.parseInt ( timeFormatParser[1].trim() );
+                                    calendar.set(Calendar.HOUR_OF_DAY, hour);
+                                    calendar.set(Calendar.MINUTE, min);
+                                    if(calendar.getTimeInMillis() >= System.currentTimeMillis()) {
+                                        time += 10000;
+                                        Intent serviceIntent = new Intent(getBaseContext(), NotificationService.class);
+                                        serviceIntent.putExtra("petName", notification.getPetName());
+                                        serviceIntent.putExtra("message", notification.getText());
+                                        PendingIntent intent = PendingIntent.getBroadcast(getBaseContext(), new Random().nextInt(), serviceIntent, 0);
+                                        manager.setExact(AlarmManager.RTC_WAKEUP, calendar.getTimeInMillis()+time, intent);
 
+                                    }
                                 }
+                            catch(Throwable e){
+                                    Log.e("userAccount", "error:"+e);
+                            }
+
                             }
                         }
-                        catch(Throwable e){
-                        }
 
 
-                    }
+
                 });
     }
 

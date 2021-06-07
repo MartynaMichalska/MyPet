@@ -26,6 +26,7 @@
         android:backgroundTint="#DA8686"
         android:fontFamily="@font/autour_one"
         android:text="ADD A PET"
+
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView12" />

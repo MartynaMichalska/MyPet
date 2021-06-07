@@ -102,6 +102,7 @@
             android:text="FINISH READING"
             android:layout_gravity="center"
             android:textSize="20dp"
+            android:fontFamily="@font/autour_one"
             android:id="@+id/backToMainFaqq"/>
 
     </LinearLayout>

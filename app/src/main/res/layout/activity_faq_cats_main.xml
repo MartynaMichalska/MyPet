@@ -108,6 +108,7 @@
         android:backgroundTint="#DA8486"
         android:fontFamily="@font/autour_one"
         android:text="BACK"
+        android:background="@drawable/outline_bt"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/catFaqOther"
         app:layout_constraintStart_toStartOf="parent"

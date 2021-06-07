@@ -64,5 +64,6 @@
         android:textColor="@color/white"
         android:text="BACK"
         android:fontFamily="@font/autour_one"
-        android:id="@+id/backBT"/>
+        android:id="@+id/backBT"
+        android:layout_marginBottom="10dp"/>
 </LinearLayout>

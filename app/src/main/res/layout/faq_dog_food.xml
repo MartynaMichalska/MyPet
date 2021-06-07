@@ -18,15 +18,24 @@
             android:background="#F3E2E2"
             android:fontFamily="sans-serif-smallcaps"
             android:gravity="center"
-            android:text="12 HABITS OF YOUR DOG TO CHANGE"
-            android:textSize="24sp" />
+            android:text="FOOD YOUR DOG CANNOT EAT"
+            android:textSize="27sp"
+            android:layout_marginBottom="50dp"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+
+            android:fontFamily="@font/cousine"
+            android:text="Dogs can be opportunists when it comes to getting their paws on tasty treats, but not all everyday food and drink are safe if they come into contact with them. Learn which nine items are particularly dangerous to your dog." />
 
         <ImageView
             android:layout_width="397dp"
             android:layout_height="201dp"
             android:layout_gravity="center"
             android:layout_marginTop="50dp"
-            app:srcCompat="@drawable/habits1" />
+            app:srcCompat="@drawable/food1" />
 
         <TextView
             android:layout_marginTop="50dp"
@@ -34,145 +43,132 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:fontFamily="cursive"
-            android:text="1. Barking at visitors"/>
+            android:text="1. Onions, garlic and chive"/>
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:fontFamily="@font/cousine"
-            android:text="@string/bork"/>
+            android:text="The onion family, whether dry, raw or cooked, is particularly toxic to dogs and can cause gastrointestinal irritation and red blood cell damage. Signs of illness are not always immediate and can occur up to a few days later."/>
         <TextView
             android:textSize="40dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:fontFamily="cursive"
-            android:text="2. Jumping on guests"/>
+            android:text="2. Chocolate"/>
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:fontFamily="@font/cousine"
-            android:text="@string/jump"/>
+            android:text="However enticing chocolate is for humans and dogs alike, chocolate is another poisonous food for dogs. Chocolate contains a stimulant called theobromine (dark chocolate has the highest content of this) which is toxic to dogs and can cause kidney failure."/>
         <TextView
             android:textSize="40dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:fontFamily="cursive"
-            android:text="3. Sitting on furniture"/>
+            android:text="3. Macadamia nuts"/>
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:fontFamily="@font/cousine"
-            android:text="@string/furniture"/>
+            android:text="Macadamia nuts contain a toxin that can affect your dog’s muscles and nervous system resulting in weakness, swollen limbs and panting."/>
         <TextView
             android:textSize="40dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:fontFamily="cursive"
-            android:text="4. Attention seeking"/>
+            android:text="4. Corn on the cob"/>
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:fontFamily="@font/cousine"
-            android:text="@string/mememe"/>
+            android:text="Corn on the cob could potentially be fatal if eaten by your dog. Although the corn is digested by dogs, the cob can cause a blockage in your dog’s intestine."/>
         <TextView
             android:textSize="40dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:fontFamily="cursive"
-            android:text="5. Excessive licking"/>
+            android:text="5. Avocado"/>
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:fontFamily="@font/cousine"
-            android:text="@string/lick"/>
+            android:text="Avocados are another poisonous food for dogs. Avocado plants contain a substance called Persin which is in its leaves, fruit and seed and can cause vomiting and diarrhoea in dogs."/>
         <TextView
             android:textSize="40dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:fontFamily="cursive"
-            android:text="6. Digging"/>
+            android:text="6. Xylitol"/>
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:fontFamily="@font/cousine"
-            android:text="@string/dig"/>
+            android:text="Our desire for sweet treats, chewing gum and drinks together with low-fat, diet and sugar-free products (including some peanut butters so always check the label before using this as a treat) are often laced with an artificial sweetener called Xylitol which causes an insulin release in our bodies. However, if your dog digests one of these sweetened foods they can go into hypoglycaemia which is linked to liver failure and blood clotting disorders"/>
         <TextView
             android:textSize="40dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:fontFamily="cursive"
-            android:text="7. Stealing"/>
+            android:text="7. Alcohol"/>
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:fontFamily="@font/cousine"
-            android:text="@string/stealing"/>
+            android:text="Alcohol has a huge impact on dogs even in small doses. The drink not only causes intoxication as it does in humans, but it can lead to sickness, diarrhoea and even central nervous system damage."/>
         <TextView
             android:textSize="40dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:fontFamily="cursive"
-            android:text="8. Pushing through the doors"/>
+            android:text="8. Cooked bones"/>
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:fontFamily="@font/cousine"
-            android:text="@string/doors"/>
+            android:text="Giving your dog a raw uncooked bone to chew on is great, but avoid cooked bones at all cost. These can easily splinter and in large quantities cause constipation or at worst, a perforation of the gut which can be fatal."/>
         <TextView
             android:textSize="40dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:fontFamily="cursive"
-            android:text="9. Chewing"/>
+            android:text="9. Grapes and raisins"/>
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:fontFamily="@font/cousine"
-            android:text="@string/chew"/>
+            android:text="Raisins are in many of the foods that we love to eat such as cakes, biscuits and cereals so it’s not just the fruit form we should be concerned with. The active ingredient which causes the toxin is unknown, however both grapes and raisins may cause severe liver damage and kidney failure."/>
+
         <TextView
-            android:textSize="40dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:fontFamily="cursive"
-            android:text="10. Aggression"/>
+            android:layout_gravity="center"
+            android:layout_marginTop="50dp"
+            android:background="#F3E2E2"
+            android:fontFamily="sans-serif-smallcaps"
+            android:gravity="center"
+            android:text="WHAT TO DO IF MY DOG CONSUMED ONE OF THOSE?"
+            android:textSize="27sp"
+            android:layout_marginBottom="10dp"/>
+
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:fontFamily="@font/cousine"
-            android:text="@string/agression"/>
-        <TextView
-            android:textSize="40dp"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:fontFamily="cursive"
-            android:text="11. Fear"/>
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:fontFamily="@font/cousine"
-            android:text="@string/fear"/>
-        <TextView
-            android:textSize="40dp"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:fontFamily="cursive"
-            android:text="12. Meeting other dogs"/>
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:fontFamily="@font/cousine"
-            android:text="@string/oth_dogs"/>
+            android:textSize="20dp"
+            android:textStyle="bold"
+            android:text="If consumed, even small amounts of these items can be fatal so always act immediately and take your dog to the vets."/>
+
+
 
         <android.widget.Button
             android:layout_width="200dp"
@@ -182,8 +178,8 @@
             android:textColor="@color/white"
             android:fontFamily="@font/autour_one"
             android:layout_gravity="center"
-            android:id="@+id/backDogsBehaviour"
-            android:layout_marginTop="10dp"
+            android:id="@+id/backDogsFeeding"
+            android:layout_marginTop="20dp"
             android:layout_marginBottom="10dp"/>
 
 

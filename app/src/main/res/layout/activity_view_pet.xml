@@ -82,6 +82,8 @@
             android:layout_height="wrap_content"
             android:background="@drawable/outline_bt"
             android:textColor="@color/white"
+            android:layout_marginBottom="10dp"
+            android:fontFamily="@font/autour_one"
             android:text="DELETE" />
         <android.widget.Button
             android:id="@+id/viewPet_edit_btn"
@@ -89,6 +91,8 @@
             android:layout_height="wrap_content"
             android:background="@drawable/outline_bt"
             android:textColor="@color/white"
+            android:fontFamily="@font/autour_one"
+            android:layout_marginTop="10dp"
             android:text="@string/edit" />
 
     </LinearLayout>

@@ -81,7 +81,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="52dp"
         android:fontFamily="serif-monospace"
-        android:text="Welcome! It's your main page."
+        android:text="Welcome! "
         android:textSize="25sp"
         android:gravity="center"
         android:foregroundGravity="center"

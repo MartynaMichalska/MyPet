@@ -28,20 +28,20 @@
             app:srcCompat="@drawable/one" />
 
         <ImageView
-            android:layout_width="370dp"
+            android:layout_width="380dp"
             android:layout_height="300dp"
             android:layout_gravity="center"
             android:layout_marginTop="30dp"
             app:srcCompat="@drawable/two" />
 
         <ImageView
-            android:layout_width="370dp"
+            android:layout_width="380dp"
             android:layout_height="300dp"
             android:layout_gravity="center"
             android:layout_marginTop="30dp"
             app:srcCompat="@drawable/three" />
         <ImageView
-            android:layout_width="370dp"
+            android:layout_width="380dp"
             android:layout_height="350dp"
             android:layout_marginTop="30dp"
             android:layout_gravity="center"

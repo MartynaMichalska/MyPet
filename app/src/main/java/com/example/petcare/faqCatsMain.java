@@ -52,11 +52,11 @@ private Button bt;
 
     public void innitViews()
     {
-        feed= (ImageView) findViewById(R.id.catFaqFeed);
-        tricks= (ImageView) findViewById(R.id.catFaqTricks);
-        social= (ImageView) findViewById(R.id.catFaqSocial);
-        other= (ImageView) findViewById(R.id.catFaqOther);
-        bt=(Button) findViewById(R.id.backToMainMainFaq);
+        feed = (ImageView) findViewById(R.id.catFaqFeed);
+        tricks = (ImageView) findViewById(R.id.catFaqTricks);
+        social = (ImageView) findViewById(R.id.catFaqSocial);
+        other = (ImageView) findViewById(R.id.catFaqOther);
+        bt = (Button) findViewById(R.id.backToMainMainFaq);
 
     }
 }

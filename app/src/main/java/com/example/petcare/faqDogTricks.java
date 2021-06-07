@@ -12,7 +12,7 @@ public class faqDogTricks extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.faq_dog_tricks);
-        back= (Button) findViewById(R.id.backDogsTricks);
+        back = (Button) findViewById(R.id.backDogsTricks);
         back.setOnClickListener(v -> openMainAc());
     }
 

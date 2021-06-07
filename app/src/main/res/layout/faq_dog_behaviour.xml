@@ -18,181 +18,187 @@
             android:background="#F3E2E2"
             android:fontFamily="sans-serif-smallcaps"
             android:gravity="center"
-            android:text="5 TRICKS TO TEACH YOUR DOG"
-            android:textSize="25sp" />
+            android:text="12 HABITS OF YOUR DOG TO CHANGE"
+            android:textSize="24sp" />
 
         <ImageView
             android:layout_width="397dp"
             android:layout_height="201dp"
             android:layout_gravity="center"
             android:layout_marginTop="50dp"
-            app:srcCompat="@drawable/dog_tricks1" />
+            app:srcCompat="@drawable/habits1" />
 
+        <TextView
+            android:layout_marginTop="50dp"
+            android:textSize="40dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="cursive"
+            android:text="1. Barking at visitors"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:fontFamily="@font/cousine"
+            android:text="@string/bork"/>
         <TextView
             android:textSize="40dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:fontFamily="cursive"
-            android:text="1. Roll Over"/>
-
+            android:text="2. Jumping on guests"/>
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:fontFamily="@font/cousine"
-            android:text="@string/rollover1" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:fontFamily="@font/cousine"
-            android:text="@string/rollover2"
-            android:layout_marginTop="20dp"/>
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:fontFamily="@font/cousine"
-            android:text="@string/rollover3"
-            android:layout_marginTop="20dp"/>
-
-        <ImageView
-            android:layout_width="621dp"
-            android:layout_height="285dp"
-            android:layout_gravity="center"
-            android:layout_marginTop="10dp"
-            app:srcCompat="@drawable/dogtrick2" />
-
+            android:text="@string/jump"/>
         <TextView
             android:textSize="40dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:fontFamily="cursive"
-            android:text="2. Shake Hand"/>
-
+            android:text="3. Sitting on furniture"/>
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:fontFamily="@font/cousine"
-            android:text="@string/shake1" />
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:fontFamily="@font/cousine"
-            android:text="@string/shake2"
-            android:layout_marginTop="20dp"/>
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:fontFamily="@font/cousine"
-            android:text="@string/shake3"
-            android:layout_marginTop="20dp"/>
-
-        <ImageView
-            android:layout_width="621dp"
-            android:layout_height="285dp"
-            android:layout_gravity="center"
-            android:layout_marginTop="10dp"
-            app:srcCompat="@drawable/trick3" />
-
+            android:text="@string/furniture"/>
         <TextView
             android:textSize="40dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:fontFamily="cursive"
-            android:text="3. High Five"/>
+            android:text="4. Attention seeking"/>
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:fontFamily="@font/cousine"
-            android:text="@string/h51" />
-
-
-        <ImageView
-            android:layout_width="621dp"
-            android:layout_height="285dp"
-            android:layout_gravity="center"
-            android:layout_marginTop="10dp"
-            app:srcCompat="@drawable/trick4" />
-
+            android:text="@string/mememe"/>
         <TextView
             android:textSize="40dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:fontFamily="cursive"
-            android:text="4. Speak"/>
-
+            android:text="5. Excessive licking"/>
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:fontFamily="@font/cousine"
-            android:text="@string/speak1" />
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:fontFamily="@font/cousine"
-            android:text="@string/speak2"
-            android:layout_marginTop="20dp"/>
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:fontFamily="@font/cousine"
-            android:text="@string/speak3"
-            android:layout_marginTop="20dp"/>
-
-        <ImageView
-            android:layout_width="621dp"
-            android:layout_height="285dp"
-            android:layout_gravity="center"
-            android:layout_marginTop="10dp"
-            app:srcCompat="@drawable/trick5" />
+            android:text="@string/lick"/>
         <TextView
             android:textSize="40dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:fontFamily="cursive"
-            android:text="5. Dance"/>
-
+            android:text="6. Digging"/>
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:fontFamily="@font/cousine"
-            android:text="@string/dance" />
+            android:text="@string/dig"/>
+        <TextView
+            android:textSize="40dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="cursive"
+            android:text="7. Stealing"/>
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:fontFamily="@font/cousine"
-            android:text="@string/dance1"
-            android:layout_marginTop="20dp"/>
-
-
-        <ImageView
-            android:layout_width="621dp"
-            android:layout_height="285dp"
+            android:text="@string/stealing"/>
+        <TextView
+            android:textSize="40dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="cursive"
+            android:text="8. Pushing through the doors"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:layout_marginTop="10dp"
-            app:srcCompat="@drawable/trick6" />
+            android:fontFamily="@font/cousine"
+            android:text="@string/doors"/>
+        <TextView
+            android:textSize="40dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="cursive"
+            android:text="9. Chewing"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:fontFamily="@font/cousine"
+            android:text="@string/chew"/>
+        <TextView
+            android:textSize="40dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="cursive"
+            android:text="10. Aggression"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:fontFamily="@font/cousine"
+            android:text="@string/agression"/>
+        <TextView
+            android:textSize="40dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="cursive"
+            android:text="11. Fear"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:fontFamily="@font/cousine"
+            android:text="@string/fear"/>
+        <TextView
+            android:textSize="40dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="cursive"
+            android:text="12. Meeting other dogs"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:fontFamily="@font/cousine"
+            android:text="@string/oth_dogs"/>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
         <android.widget.Button
             android:layout_width="200dp"
             android:layout_height="60dp"
-            android:layout_marginTop="10dp"
-            android:layout_marginBottom="10dp"
             android:background="@drawable/outline_bt"
             android:text="BACK"
             android:textColor="@color/white"
             android:fontFamily="@font/autour_one"
             android:layout_gravity="center"
-            android:id="@+id/backDogsTricks"/>
+            android:id="@+id/backDogsBehaviour"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp"/>
 
 
     </LinearLayout>

@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="8dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="50dp"
+            android:background="#F3E2E2"
+            android:fontFamily="sans-serif-smallcaps"
+            android:gravity="center"
+            android:text="MOST COMMON DOG MYTHS DEBUNKED"
+            android:textSize="24sp" />
+
+        <ImageView
+            android:layout_width="397dp"
+            android:layout_height="201dp"
+            android:layout_gravity="center"
+            android:layout_marginTop="50dp"
+            app:srcCompat="@drawable/other1" />
+
+        <TextView
+            android:layout_marginTop="50dp"
+            android:textSize="35dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="cursive"
+            android:text="1. Dogs are colorblind."/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:fontFamily="@font/cousine"
+            android:text="It is difficult to know where this myth came from since none of us can see what a dog sees. Structurally, the canine retina contains 2 of the 3 photo receptor types necessary to see color. Studies have shown that they see several colors, including different saturations of yellow, blue and grey. The range of color in their visual spectrum is less than what we see."/>
+        <TextView
+            android:textSize="35dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="cursive"
+            android:text="2. Dogs eat grass when they are sick."/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:fontFamily="@font/cousine"
+            android:text="It is true that some dogs will eat grass when they are ill or nauseous. However, many dogs eat grass for other reasons including boredom, displacement behaviors, and opportunity. Some dogs just like eating grass because it is fun. This is not a problem as long as the grass has not been treated. So, as long as your dog just likes eating small amounts of grass and it does not make him sick, there is no need to stop this behavior."/>
+        <TextView
+            android:textSize="35dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="cursive"
+            android:text="3. A wagging tail means a friendly dog."/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:fontFamily="@font/cousine"
+            android:text="A wagging tail is not always a sign of friendliness. Be careful, misinterpreting this sign can get you bit. Tail wagging can mean happiness, excitement and alertness, or it can signal fear, anxiety or be a prelude to aggression. Canine body language is complex and can be misinterpreted."/>
+        <TextView
+            android:textSize="35dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="cursive"
+            android:text="4. One dog year equals seven human years."/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:fontFamily="@font/cousine"
+            android:text="This generalization is not true at all. In fact, the first year of a dog’s life can be equivalent to the first 12 to 14 years of a humans. A dog’s age is dependent on many factors such as breed, size and genetics. The average small dog can live 15 to 18 years whereas a large or giant breed dog may only live 7 to 10 years."/>
+        <TextView
+            android:textSize="35dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="cursive"
+            android:text="5. A cold wet nose means a dog is healthy."/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:fontFamily="@font/cousine"
+            android:text="Wetness, dryness, or the temperature of the dog’s nose can vary with normal daily activities and is not a reliable indicator of health or illness. Changes in daily routine, activity and appetite are much more reliable indicators of how a dog is feeling."/>
+        <TextView
+            android:textSize="35dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="cursive"
+            android:text="6. A dog’s mouth is cleaner than a human mouth."/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:fontFamily="@font/cousine"
+            android:text="This myth probably originated from the observation when dogs lick their wounds, they seem to heal faster. The reason they heal faster is not because dogs have a clean mouth, but because the process of licking debrides away damaged tissue and stimulates blood flow which, in turn, promotes faster healing.  If your dog is like mine, litter box treats are his favorite snack food. The fact the dogs do not brush their teeth twice a day and 80 to 90% of dogs over three years of age have some form of periodontal disease, it is unlikely your dog’s mouth is cleaner than yours."/>
+        <TextView
+            android:textSize="35dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="cursive"
+            android:text="7. You can't teach an old dog new tricks. "/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:fontFamily="@font/cousine"
+            android:text="This is definitely not true. Older dogs can learn new tricks, they just don't always want to. Like us, as dogs’ age, they can be less interested in learning new activities and are less responsive to training. Remember also, some older dogs have decreased vision and hearing or joint issues which can make training a little more difficult. With time and patience, an older dog should be able to learn any trick a younger dog can, within the limitations of their physical ability."/>
+        <TextView
+            android:textSize="35dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="cursive"
+            android:text="8. Female dogs need to go through a heat cycle before being spayed."/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:fontFamily="@font/cousine"
+            android:text="Allowing a female dog to go through heat prior to being spayed does not make her healthier. In fact, spaying her prior to the first heat cycle will significantly reduce the likelihood of mammary cancer later in life.Some argue, that dogs may be missing something by not having a litter. However, dogs do not experience a sense of loss by not having offspring."/>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        <android.widget.Button
+            android:layout_width="200dp"
+            android:layout_height="60dp"
+            android:background="@drawable/outline_bt"
+            android:text="BACK"
+            android:textColor="@color/white"
+            android:fontFamily="@font/autour_one"
+            android:layout_gravity="center"
+            android:id="@+id/backDogsOther"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp"/>
+
+
+    </LinearLayout>
+</androidx.core.widget.NestedScrollView>

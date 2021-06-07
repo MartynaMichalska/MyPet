@@ -12,12 +12,12 @@ private Button back;
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_faq_cat_tricks);
-        back=(Button) findViewById(R.id.backToMainFaq);
+        back = findViewById(R.id.backToMainFaq3);
         back.setOnClickListener(v -> openMainAc());
     }
 
     private void openMainAc() {
-        Intent intent= new Intent(this, faqCatsMain.class);
+        Intent intent = new Intent(this, faqCatsMain.class);
         startActivity(intent);
     }
 }

@@ -20,8 +20,8 @@ public class faqDogsMain extends AppCompatActivity {
         innitViews();
         tricks.setOnClickListener(v -> openActivityTricks());
         behaviour.setOnClickListener(v -> openActivityBehaviour());
-        feed.setOnClickListener(v -> openActivityOther());
-        other.setOnClickListener(v -> openActivityTricks());
+        other.setOnClickListener(v -> openActivityOther());
+        feed.setOnClickListener(v -> openActivityFeeding());
         bt.setOnClickListener(v -> openActivityMainFaq());
 
     }
